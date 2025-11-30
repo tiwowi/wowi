@@ -106,7 +106,7 @@ ww_wrangle_data(
   latitude = latitude,
   longitude = longitude
 )
-#> [1] "/tmp/RtmpLoe3nt/file1f843cc32338/input-files/Locality"
+#> [1] "/tmp/Rtmp80OSGa/file1f8012522abe/input-files/Locality"
 
 ## Show created files ----
 list.files(file.path(tmp, "input-files"))
