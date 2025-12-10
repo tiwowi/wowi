@@ -63,7 +63,7 @@ The output described in point 4 offers an IPC Acute Malnutrition-related insight
 
 ## From data to clusters - the wowi analysis workflow 
 
-The analysis workflow with `wowi` begins with the standard anthropometric data processing steps - data wrangling and quality checks. For this purpose, wowi relies on the [`mwana`](https://nutriverse.io/mwana/dev/) package, which will be installed or updated automatically when you install `wowi`. Moreover, in the downstream analysis workflow, the `sf` package is required to generate shapefile-related outputs. Note that [`sf`](https://r-spatial.github.io/sf/) is not installed with wowi, therefore you must install it separately.
+The analysis workflow with `wowi` begins with the standard anthropometric data processing steps - data wrangling and quality checks. For this purpose, wowi relies on the [`mwana`](https://https://mphimo.github.io/mwana/) package, which will be installed or updated automatically when you install `wowi`. Moreover, in the downstream analysis workflow, the `sf` package is required to generate shapefile-related outputs. Note that [`sf`](https://r-spatial.github.io/sf/) is not installed with wowi, therefore you must install it separately.
 
 ::: {.callout-note}
 
@@ -115,7 +115,7 @@ a <- anthro |>
   )
 ```
 
-Hereafter, you can check the quality of the data. Learn how to do so [here](https://nutriverse.io/mwana/dev/articles/plausibility.html).
+Hereafter, you can check the quality of the data. Learn how to do so [here](https://https://mphimo.github.io/mwana/articles/plausibility.html).
 
 ### Running the spatial scan
 
