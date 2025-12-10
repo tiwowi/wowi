@@ -99,7 +99,7 @@ references:
   abstract: 'mwana: An Efficient Workflow for Plausibility Checks and Prevalence Analysis
     of Wasting in R'
   notes: Imports
-  url: https://nutriverse.io/mwana
+  url: https://mphimo.github.io/mwana/
   authors:
   - family-names: Zaba
     given-names: Tomás
@@ -111,7 +111,7 @@ references:
   - family-names: Myatt
     given-names: Mark
   year: '2025'
-  version: '>= 1.0.0'
+  version: '>= 0.2.3'
 - type: software
   title: withr
   abstract: 'withr: Run Code ''With'' Temporarily Modified Global State'
@@ -193,6 +193,10 @@ references:
     given-names: Barret
     email: barret@posit.co
     orcid: https://orcid.org/0000-0001-9986-114X
+  - family-names: Aden-Buie
+    given-names: Garrick
+    email: garrick@adenbuie.com
+    orcid: https://orcid.org/0000-0002-7111-0077
   - family-names: Xie
     given-names: Yihui
     email: yihui@posit.co

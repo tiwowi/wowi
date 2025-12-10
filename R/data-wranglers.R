@@ -59,7 +59,7 @@ wrangle_data <- function(
 #'  readable by the software, and placed in a directory it can access.
 #'
 #' `ww_wrangle_data()` is a convenient function designed for this task. It
-#' assumes that the input anthropometric data has been pre-processed using the
+#' assumes that the input anthropometric data has been pre-processed using
 #' `{mwana}` data wrangling functions.
 #'
 #' @param .data A data frame object that has been wrangled using
@@ -84,7 +84,7 @@ wrangle_data <- function(
 #' variable must be named "latitude".
 #'
 #' @returns
-#' Three files are created and saved in the user-defined directory as specifiie 
+#' Three files are created and saved in the user-defined directory as specified 
 #' in the `dir` argument: a `.cas` file for cases, a `.ctl` for controls, and
 #' a `.geo` file for geographical coordinates. The full filenames will incorporate
 #' the use-defined `filename` string.
@@ -117,7 +117,7 @@ wrangle_data <- function(
 #'   mwana::define_wasting(
 #'     zscores = wfhz,
 #'     .by = "zscores",
-#'     edema = oedema
+#'     oedema = oedema
 #'   )
 #'
 #' ## Apply the function ----
