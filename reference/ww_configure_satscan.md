@@ -77,7 +77,7 @@ x <- anthro |>
   mwana::define_wasting(
     zscores = wfhz,
     .by = "zscores",
-    edema = oedema
+    oedema = oedema
   )
 #> ================================================================================
 
@@ -90,7 +90,7 @@ ww_wrangle_data(
   latitude = latitude,
   longitude = longitude
 )
-#> [1] "/tmp/RtmpwOvuRT/file1f775368c018/input-files/Locality"
+#> [1] "/tmp/RtmpYJ0E4k/file246448eff81e/input-files/Locality"
 
 library(rsatscan) # important to make `{wowi}` access `{rsatscan}`-specific eviroment
 #> rsatscan only does anything useful if you have SaTScan

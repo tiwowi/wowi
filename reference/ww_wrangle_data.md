@@ -7,7 +7,7 @@ can access.
 
 `ww_wrangle_data()` is a convenient function designed for this task. It
 assumes that the input anthropometric data has been pre-processed using
-the `{mwana}` data wrangling functions.
+`{mwana}` data wrangling functions.
 
 ## Usage
 
@@ -60,7 +60,7 @@ ww_wrangle_data(
 ## Value
 
 Three files are created and saved in the user-defined directory as
-specifiie in the `dir` argument: a `.cas` file for cases, a `.ctl` for
+specified in the `dir` argument: a `.cas` file for cases, a `.ctl` for
 controls, and a `.geo` file for geographical coordinates. The full
 filenames will incorporate the use-defined `filename` string.
 
@@ -93,7 +93,7 @@ x <- anthro |>
   mwana::define_wasting(
     zscores = wfhz,
     .by = "zscores",
-    edema = oedema
+    oedema = oedema
   )
 #> ================================================================================
 
@@ -106,7 +106,7 @@ ww_wrangle_data(
   latitude = latitude,
   longitude = longitude
 )
-#> [1] "/tmp/RtmpwOvuRT/file1f774fb0243/input-files/Locality"
+#> [1] "/tmp/RtmpYJ0E4k/file2464337ea542/input-files/Locality"
 
 ## Show created files ----
 list.files(file.path(tmp, "input-files"))

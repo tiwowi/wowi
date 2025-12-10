@@ -117,7 +117,7 @@
 </div>
 </section></section></section><section class="level2"><h2 id="from-data-to-clusters---the-wowi-analysis-workflow">From data to clusters - the wowi analysis workflow<a class="anchor" aria-label="anchor" href="#from-data-to-clusters---the-wowi-analysis-workflow"></a>
 </h2>
-<p>The analysis workflow with <code>wowi</code> begins with the standard anthropometric data processing steps - data wrangling and quality checks. For this purpose, wowi relies on the <a href="https://nutriverse.io/mwana/dev/" class="external-link"><code>mwana</code></a> package, which will be installed or updated automatically when you install <code>wowi</code>. Moreover, in the downstream analysis workflow, the <code>sf</code> package is required to generate shapefile-related outputs. Note that <a href="https://r-spatial.github.io/sf/" class="external-link"><code>sf</code></a> is not installed with wowi, therefore you must install it separately.</p>
+<p>The analysis workflow with <code>wowi</code> begins with the standard anthropometric data processing steps - data wrangling and quality checks. For this purpose, wowi relies on the <a href="https://https://mphimo.github.io/mwana/" class="external-link"><code>mwana</code></a> package, which will be installed or updated automatically when you install <code>wowi</code>. Moreover, in the downstream analysis workflow, the <code>sf</code> package is required to generate shapefile-related outputs. Note that <a href="https://r-spatial.github.io/sf/" class="external-link"><code>sf</code></a> is not installed with wowi, therefore you must install it separately.</p>
 <div>
 <blockquote>
 <p><strong>Note</strong></p>
@@ -160,7 +160,7 @@
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">define_wasting</span><span class="op">(</span></span>
 <span>    zscores <span class="op">=</span> <span class="va">wfhz</span>,</span>
-<span>    edema <span class="op">=</span> <span class="va">oedema</span>,</span>
+<span>    oedema <span class="op">=</span> <span class="va">oedema</span>,</span>
 <span>    .by <span class="op">=</span> <span class="st">"zscores"</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span></span>
@@ -169,7 +169,7 @@
 <span>  <span class="op">)</span></span>
 <span><span class="co">#&gt; ================================================================================</span></span></code></pre></div>
 </div>
-<p>Hereafter, you can check the quality of the data. Learn how to do so <a href="https://nutriverse.io/mwana/dev/articles/plausibility.html" class="external-link">here</a>.</p>
+<p>Hereafter, you can check the quality of the data. Learn how to do so <a href="https://https://mphimo.github.io/mwana/articles/plausibility.html" class="external-link">here</a>.</p>
 </section><section class="level3"><h3 id="running-the-spatial-scan">Running the spatial scan<a class="anchor" aria-label="anchor" href="#running-the-spatial-scan"></a>
 </h3>
 <p>This is handled by the <code><a href="../reference/ww_run_satscan.html">ww_run_satscan()</a></code> function. Read its full documentation by typing <code><a href="../reference/ww_run_satscan.html">?ww_run_satscan</a></code> in your console or by clicking <a href="https://tiwowi.github.io/wowi/reference/ww_run_satscan.html">here</a>.</p>

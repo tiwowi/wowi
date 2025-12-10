@@ -191,16 +191,16 @@ otherwise, the analysis will be aborted. Latitude corresponds to the X-axis
 <span class="r-in"><span><span class="co">## Wrangle data with `{mwana}` ----</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">anthro</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>longitude <span class="op">=</span> <span class="va">y</span>, latitude <span class="op">=</span> <span class="va">x</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
-<span class="r-in"><span>  <span class="fu">mwana</span><span class="fu">::</span><span class="fu"><a href="https://nutriverse.io/mwana/reference/mw_wrangle_wfhz.html" class="external-link">mw_wrangle_wfhz</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu">mwana</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/mwana/man/mw_wrangle_wfhz.html" class="external-link">mw_wrangle_wfhz</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    sex <span class="op">=</span> <span class="va">sex</span>,</span></span>
 <span class="r-in"><span>    .recode_sex <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>    weight <span class="op">=</span> <span class="va">weight</span>,</span></span>
 <span class="r-in"><span>    height <span class="op">=</span> <span class="va">height</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span> <span class="op">|&gt;</span></span></span>
-<span class="r-in"><span>  <span class="fu">mwana</span><span class="fu">::</span><span class="fu"><a href="https://nutriverse.io/mwana/reference/define_wasting.html" class="external-link">define_wasting</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu">mwana</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/mwana/man/define_wasting.html" class="external-link">define_wasting</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    zscores <span class="op">=</span> <span class="va">wfhz</span>,</span></span>
 <span class="r-in"><span>    .by <span class="op">=</span> <span class="st">"zscores"</span>,</span></span>
-<span class="r-in"><span>    edema <span class="op">=</span> <span class="va">oedema</span></span></span>
+<span class="r-in"><span>    oedema <span class="op">=</span> <span class="va">oedema</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ================================================================================</span>
 <span class="r-in"><span></span></span>

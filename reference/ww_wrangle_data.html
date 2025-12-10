@@ -3,12 +3,12 @@
 into cases, controls, and geographical coordinates files, then saved in a format
 readable by the software, and placed in a directory it can access.
 ww_wrangle_data() is a convenient function designed for this task. It
-assumes that the input anthropometric data has been pre-processed using the
+assumes that the input anthropometric data has been pre-processed using
 {mwana} data wrangling functions."><meta property="og:description" content="SaTScan's Bernoulli-based spatial scan requires the input data to be split
 into cases, controls, and geographical coordinates files, then saved in a format
 readable by the software, and placed in a directory it can access.
 ww_wrangle_data() is a convenient function designed for this task. It
-assumes that the input anthropometric data has been pre-processed using the
+assumes that the input anthropometric data has been pre-processed using
 {mwana} data wrangling functions."><meta property="og:image" content="https://tiwowi.github.io/wowi/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
@@ -57,7 +57,7 @@ assumes that the input anthropometric data has been pre-processed using the
 into cases, controls, and geographical coordinates files, then saved in a format
 readable by the software, and placed in a directory it can access.</p>
 <p><code>ww_wrangle_data()</code> is a convenient function designed for this task. It
-assumes that the input anthropometric data has been pre-processed using the
+assumes that the input anthropometric data has been pre-processed using
 <code>{mwana}</code> data wrangling functions.</p>
     </div>
 
@@ -112,7 +112,7 @@ to <code>wfhz</code>.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Three files are created and saved in the user-defined directory as specifiie
+    <p>Three files are created and saved in the user-defined directory as specified
 in the <code>dir</code> argument: a <code>.cas</code> file for cases, a <code>.ctl</code> for controls, and
 a <code>.geo</code> file for geographical coordinates. The full filenames will incorporate
 the use-defined <code>filename</code> string.</p>
@@ -136,16 +136,16 @@ latitude, and longitude.</p>
 <span class="r-in"><span><span class="co">## Wrangle data with `{mwana}` ----</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">anthro</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>longitude <span class="op">=</span> <span class="va">y</span>, latitude <span class="op">=</span> <span class="va">x</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
-<span class="r-in"><span>  <span class="fu">mwana</span><span class="fu">::</span><span class="fu"><a href="https://nutriverse.io/mwana/reference/mw_wrangle_wfhz.html" class="external-link">mw_wrangle_wfhz</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu">mwana</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/mwana/man/mw_wrangle_wfhz.html" class="external-link">mw_wrangle_wfhz</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    sex <span class="op">=</span> <span class="va">sex</span>,</span></span>
 <span class="r-in"><span>    .recode_sex <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>    weight <span class="op">=</span> <span class="va">weight</span>,</span></span>
 <span class="r-in"><span>    height <span class="op">=</span> <span class="va">height</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span> <span class="op">|&gt;</span></span></span>
-<span class="r-in"><span>  <span class="fu">mwana</span><span class="fu">::</span><span class="fu"><a href="https://nutriverse.io/mwana/reference/define_wasting.html" class="external-link">define_wasting</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu">mwana</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/mwana/man/define_wasting.html" class="external-link">define_wasting</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    zscores <span class="op">=</span> <span class="va">wfhz</span>,</span></span>
 <span class="r-in"><span>    .by <span class="op">=</span> <span class="st">"zscores"</span>,</span></span>
-<span class="r-in"><span>    edema <span class="op">=</span> <span class="va">oedema</span></span></span>
+<span class="r-in"><span>    oedema <span class="op">=</span> <span class="va">oedema</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ================================================================================</span>
 <span class="r-in"><span></span></span>
@@ -158,7 +158,7 @@ latitude, and longitude.</p>
 <span class="r-in"><span>  latitude <span class="op">=</span> <span class="va">latitude</span>,</span></span>
 <span class="r-in"><span>  longitude <span class="op">=</span> <span class="va">longitude</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpwOvuRT/file1f774fb0243/input-files/Locality"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpYJ0E4k/file2464337ea542/input-files/Locality"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Show created files ----</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="st">"input-files"</span><span class="op">)</span><span class="op">)</span></span></span>
