@@ -106,7 +106,7 @@ a <- anthro |>
   ) |>
   define_wasting(
     zscores = wfhz,
-    edema = oedema,
+    oedema = oedema,
     .by = "zscores"
   ) |>
   dplyr::rename(

@@ -117,7 +117,7 @@ wrangle_data <- function(
 #'   mwana::define_wasting(
 #'     zscores = wfhz,
 #'     .by = "zscores",
-#'     edema = oedema
+#'     oedema = oedema
 #'   )
 #'
 #' ## Apply the function ----

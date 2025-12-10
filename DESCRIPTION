@@ -22,7 +22,7 @@ Imports:
     dplyr (>= 1.1.4),
     rlang (>= 1.1.6),
     rsatscan (>= 1.0.9),
-    mwana (>= 1.0.0),
+    mwana (>= 0.2.3),
     withr (>= 3.0.2),
     stringr (>= 1.5.1),
     tibble (>= 3.3.0),

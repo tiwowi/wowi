@@ -115,7 +115,7 @@ x <- anthro |>
   mwana::define_wasting(
     zscores = wfhz,
     .by = "zscores",
-    edema = oedema
+    oedema = oedema
   )
 
 #' ## Given a temporary directory ----

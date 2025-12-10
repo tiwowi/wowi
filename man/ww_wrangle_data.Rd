@@ -79,7 +79,7 @@ x <- anthro |>
   mwana::define_wasting(
     zscores = wfhz,
     .by = "zscores",
-    edema = oedema
+    oedema = oedema
   )
 
 ## Apply the function ----

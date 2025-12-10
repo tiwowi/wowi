@@ -24,7 +24,7 @@ testthat::test_that(
       mwana::define_wasting(
         zscores = wfhz,
         .by = "zscores",
-        edema = oedema
+        oedema = oedema
       )
 
     ## Observed results ----
@@ -69,7 +69,7 @@ testthat::test_that(
         .to = "cm"
       ) |>
       dplyr::mutate(muac = mwana::recode_muac(muac, .to = "mm")) |>
-      mwana::define_wasting(muac = muac, .by = "muac", edema = oedema)
+      mwana::define_wasting(muac = muac, .by = "muac", oedema = oedema)
 
 
     ## Observed results ----
@@ -124,7 +124,7 @@ testthat::test_that(
         zscores = wfhz,
         muac = muac,
         .by = "combined",
-        edema = oedema
+        oedema = oedema
       )
 
     ### Observed results ----
@@ -172,7 +172,7 @@ testthat::test_that(
       mwana::define_wasting(
         zscores = wfhz,
         .by = "zscores",
-        edema = oedema
+        oedema = oedema
       )
 
     ### Create a temporary directory ----
