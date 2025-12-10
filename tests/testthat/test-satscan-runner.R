@@ -26,7 +26,7 @@ testthat::test_that(
       mwana::define_wasting(
         zscores = wfhz,
         .by = "zscores",
-        edema = oedema
+        oedema = oedema
       )
 
     ### Create a temporary directory ----
@@ -94,7 +94,7 @@ testthat::test_that(
       mwana::define_wasting(
         zscores = wfhz,
         .by = "zscores",
-        edema = oedema
+        oedema = oedema
       )
 
     ### Create a temporary directory ----
@@ -166,7 +166,7 @@ testthat::test_that(
       mwana::define_wasting(
         zscores = wfhz,
         .by = "zscores",
-        edema = oedema
+        oedema = oedema
       )
 
     ### Create a temporary directory ----

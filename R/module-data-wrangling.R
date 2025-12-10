@@ -134,7 +134,7 @@ module_server_wrangle_data <- function(id, data) {
             ),
             shiny::selectInput(
               inputId = ns("oedema"),
-              label = htmltools::tags$span("Oedema",
+              label = htmltools::tags$span("oedema",
                 style = "font-size: 14px; font-weight: bold;"
               ),
               choices = c("", cols)
@@ -174,7 +174,7 @@ module_server_wrangle_data <- function(id, data) {
             ),
             shiny::selectInput(
               inputId = ns("oedema"),
-              label = htmltools::tags$span("Oedema",
+              label = htmltools::tags$span("oedema",
                 style = "font-size: 14px; font-weight: bold;"
               ),
               choices = c("", cols)
@@ -234,7 +234,7 @@ module_server_wrangle_data <- function(id, data) {
             ),
             shiny::selectInput(
               inputId = ns("oedema"),
-              label = htmltools::tags$span("Oedema",
+              label = htmltools::tags$span("oedema",
                 style = "font-size: 14px; font-weight: bold;"
               ),
               choices = c("", cols)
@@ -303,7 +303,7 @@ module_server_wrangle_data <- function(id, data) {
                   mwana::define_wasting(
                     zscores = .data$wfhz,
                     .by = "zscores",
-                    edema = if (input$oedema != "") !!rlang::sym(input$oedema) else NULL
+                    oedema = if (input$oedema != "") !!rlang::sym(input$oedema) else NULL
                   )
               },
               "muac" = {
@@ -332,7 +332,7 @@ module_server_wrangle_data <- function(id, data) {
                   mwana::define_wasting(
                     muac = .data$muac,
                     .by = "muac",
-                    edema = if (input$oedema != "") !!rlang::sym(input$oedema) else NULL
+                    oedema = if (input$oedema != "") !!rlang::sym(input$oedema) else NULL
                   )
               },
               "combined" = {
@@ -372,7 +372,7 @@ module_server_wrangle_data <- function(id, data) {
                     zscores = .data$wfhz,
                     muac = .data$muac,
                     .by = "combined",
-                    edema = if (input$oedema != "") !!rlang::sym(input$oedema) else NULL
+                    oedema = if (input$oedema != "") !!rlang::sym(input$oedema) else NULL
                   )
               }
             )

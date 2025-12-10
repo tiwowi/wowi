@@ -37,7 +37,7 @@ are identified, and for which should be excluded from the analysis. Defaults
 to \code{wfhz}.}
 }
 \value{
-Three files are created and saved in the user-defined directory as specifiie
+Three files are created and saved in the user-defined directory as specified
 in the \code{dir} argument: a \code{.cas} file for cases, a \code{.ctl} for controls, and
 a \code{.geo} file for geographical coordinates. The full filenames will incorporate
 the use-defined \code{filename} string.
@@ -58,7 +58,7 @@ into cases, controls, and geographical coordinates files, then saved in a format
 readable by the software, and placed in a directory it can access.
 
 \code{ww_wrangle_data()} is a convenient function designed for this task. It
-assumes that the input anthropometric data has been pre-processed using the
+assumes that the input anthropometric data has been pre-processed using
 \code{{mwana}} data wrangling functions.
 }
 \examples{
@@ -79,7 +79,7 @@ x <- anthro |>
   mwana::define_wasting(
     zscores = wfhz,
     .by = "zscores",
-    edema = oedema
+    oedema = oedema
   )
 
 ## Apply the function ----
