@@ -1,3 +1,5 @@
+# wowi 1.0.2
+
 # wowi 1.0.1
 
 ## General updates 
