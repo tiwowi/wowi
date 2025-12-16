@@ -81,5 +81,22 @@ testthat::test_that(
     testthat::expect_true(is.double(dplyr::pull(r[[1]][16])))
     testthat::expect_true(is.double(dplyr::pull(r[[1]][17])))
     testthat::expect_true(is.character(dplyr::pull(r[[1]][18])))
+
+  ## Check if results are in the tibble are correct ----
+    testthat::expect_equal(r$.df$nr_EAs[1], 36)
+    testthat::expect_equal(r$.df$total_cases[1], 26)
+    testthat::expect_equal(r$.df$"%_cases"[1], 7.8)
+    testthat::expect_equal(r$.df$location_ids[1], "10,9")
+    testthat::expect_equal(r$.df$geo[1], "34.113909 N, 3.087933 E")
+    testthat::expect_equal(r$.df$radius[1], "1.20 km")
+    testthat::expect_equal(r$.df$span[1], "1.20 km")
+    testthat::expect_equal(r$.df$children[1], 25)
+    testthat::expect_equal(r$.df$n_cases[1], 6)
+    testthat::expect_equal(r$.df$expected_cases[1], 1.95)
+    testthat::expect_equal(r$.df$observedExpected[1], 3.07)
+    testthat::expect_equal(r$.df$relative_risk[1], 3.70)
+    testthat::expect_equal(r$.df$"%_cases_in_area"[1], 24.0)
+    testthat::expect_equal(r$.df$log_lik_ratio[1], 3.458213)
+    testthat::expect_equal(r$.df$pvalue[1], 0.55)
   }
 )
