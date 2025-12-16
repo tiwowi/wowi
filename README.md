@@ -11,6 +11,8 @@ public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostat
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/tiwowi/wowi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tiwowi/wowi/actions/workflows/R-CMD-check.yaml)
+[![Test
+app](https://github.com/tiwowi/wowi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tiwowi/wowi/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/tiwowi/wowi/graph/badge.svg)](https://app.codecov.io/gh/tiwowi/wowi)  
 <!-- badges: end -->
@@ -107,7 +109,7 @@ citation("wowi")
 
       Tomás Zaba (2025). _wowi: Utilities for detecting statistically
       significant spatial clusters of high acute malnutrition rates using
-      SaTScan's Bernoulli spatial-scan model_. R package version 1.0.1,
+      SaTScan's Bernoulli spatial-scan model_. R package version 1.0.2,
       <https://tiwowi.github.io/wowi/>.
 
     A BibTeX entry for LaTeX users is
@@ -116,7 +118,7 @@ citation("wowi")
         title = {wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using SaTScan's Bernoulli spatial-scan model},
         author = {{Tomás Zaba}},
         year = {2025},
-        note = {R package version 1.0.1},
+        note = {R package version 1.0.2},
         url = {https://tiwowi.github.io/wowi/},
       }
 
