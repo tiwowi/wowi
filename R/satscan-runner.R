@@ -127,7 +127,8 @@
 #' 
 #' 
 
-# no# nocov start
+# nocov start
+
 ww_run_satscan <- function(
     .data,
     filename = NULL,

@@ -8,7 +8,7 @@ message: 'To cite package "wowi" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'wowi: Detect Spatial Clusters of High Acute Malnutrition Rates'
-version: 1.0.1
+version: 1.0.2
 abstract: Utilities for detecting statistically significant spatial clusters of high
   acute malnutrition rates using SaTScan's Bernoulli spatial-scan model.
 authors:
@@ -23,7 +23,7 @@ preferred-citation:
   authors:
   - name: Tomás Zaba
   year: '2025'
-  notes: R package version 1.0.1
+  notes: R package version 1.0.2
   url: https://tiwowi.github.io/wowi/
 repository-code: https://github.com/tiwowi/wowi
 url: https://tiwowi.github.io/wowi/
