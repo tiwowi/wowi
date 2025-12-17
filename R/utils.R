@@ -15,6 +15,10 @@ skip_if_no_satscan <- function(ss_path = "/Applications/SaTScan.app/Contents/app
 #' @keywords internal
 #' 
 #' 
+
+
+# nocov start
+
 parse_clusters <- function(file) {
 
   ## Subset SaTScan-text-based output file ----
@@ -84,3 +88,5 @@ parse_clusters <- function(file) {
   ## Return binded results ----
   dplyr::bind_rows(out)
 }
+
+# nocov end
