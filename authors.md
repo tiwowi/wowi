@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/tiwowi/wowi/blob/main/inst/CITATION)
+[`inst/CITATION`](https://github.com/tiwowi/wowi/blob/v1.0.2/inst/CITATION)
 
 Tomás Zaba (2025). *wowi: Utilities for detecting statistically
 significant spatial clusters of high acute malnutrition rates using
