@@ -12,13 +12,13 @@ Source:
 
 Tomás Zaba (2025). *wowi: Utilities for detecting statistically
 significant spatial clusters of high acute malnutrition rates using
-SaTScan's Bernoulli spatial-scan model*. R package version 1.0.1,
+SaTScan's Bernoulli spatial-scan model*. R package version 1.0.2,
 <https://tiwowi.github.io/wowi/>.
 
     @Manual{,
       title = {wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using SaTScan's Bernoulli spatial-scan model},
       author = {{Tomás Zaba}},
       year = {2025},
-      note = {R package version 1.0.1},
+      note = {R package version 1.0.2},
       url = {https://tiwowi.github.io/wowi/},
     }
