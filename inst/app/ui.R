@@ -143,7 +143,7 @@ ui <- tagList(
               tags$p(
                 "
                   The app is divided into three easy-to-navigate tabs, apart from
-                  the Home - where you are now:
+                  the Home where you are now:
                   "
               ),
               tags$ol(
@@ -165,7 +165,8 @@ ui <- tagList(
                 comma-separated-value format (.csv); this is the only accepted
                 format. Click on the 'Browse' button to locate the file to be
                 uploaded from your computer; it is as simple as that.
-                Once uploaded, the first 20 rows will be priviewed on the right side.
+                Once uploaded, the first 20 rows will be priviewed on the right 
+                side of the tab.
                 "
               ),
               tags$p(
@@ -174,7 +175,7 @@ ui <- tagList(
                   tags$p(
                     "
                         The data to be uploaded must have been tidy up in accordance
-                        to the below-described app's",
+                        to the below described app ",
                     tags$b("input file"),
                     "and",
                     tags$b("input variable"),
@@ -189,7 +190,7 @@ ui <- tagList(
                         tags$b("File naming:"),
                         "the file name must use
                             underscore ( _ ) to separate words. Hyphen ( - ) or
-                            simple spaces will lead to errors along the uploading
+                            simple spaces could lead to errors along the uploading
                             process. Consider the following naming example:",
                         tags$em("my_file_to_upload.csv")
                       )
@@ -230,27 +231,32 @@ ui <- tagList(
                             "
                         ),
                         tags$li(
+                          tags$b("Weight"),
+                          "child's weight in kilograms. The variable name must
+                             be written in lowercase ('weight')."
+                        ),
+                        tags$li(
+                          tags$b("Height"),
+                          "child's height in centimetres. The variable name must
+                             be written in lowercase ('height')."
+                        ),
+                        tags$li(
                           tags$b("MUAC:"),
                           "
                             values must be given in millimetres. Ensure that there
                             no strange numbers, such as '114.1'. The presence of
                             decimal places (even if one case) will raise error
-                            in the data wrangling tab and hault the app.
+                            in the data wrangling tab and hault the app. 
+                            The variable name must be written in lowercase ('muac').
                             "
-                        ),
-                        tags$li(
-                          tags$b("Weight:"),
-                          "values must be given in Kilograms."
-                        ),
-                        tags$li(
-                          tags$b("Height:"),
-                          "values must be given in centimetres."
                         ),
                         tags$li(
                           tags$b("Oedema:"),
                           "
-                            values must be given in 'y' for yes and 'n' for no.
-                            "
+                          Values must be given in 'y' for yes, and 'n' for no. 
+                          Variable names may follow any format. For longer names, 
+                          separate words with an underscore.
+                          "
                         )
                       )
                     )
@@ -262,10 +268,12 @@ ui <- tagList(
                       style = "font-weight: normal;",
                       tags$ul(
                         tags$li(
-                          tags$b("Latitude: x-axis")
+                          tags$b("Latitude:"),
+                          "x-axis. Variable names may follow any format."
                         ),
                         tags$li(
-                          tags$b("Longitude: y-axis")
+                          tags$b("Longitude:"),
+                          "y-axis. Variable names may follow any format."
                         )
                       )
                     )
