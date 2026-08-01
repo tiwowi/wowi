@@ -83,10 +83,11 @@
 #' @export
 #'
 ww_configure_satscan <- function(
-    filename = character(),
-    params_dir = character(),
-    satscan_version = character(),
-    .scan_for = c("high-rates", "high-low-rates")) {
+  filename = character(),
+  params_dir = character(),
+  satscan_version = character(),
+  .scan_for = c("high-rates", "high-low-rates")
+) {
   ## Enforce options in `.scan_for` ----
   .scan_for <- match.arg(.scan_for)
 
@@ -148,7 +149,10 @@ ww_configure_satscan <- function(
         LaunchMapViewer = "n",
         CompressKMLtoKMZ = "n",
         IncludeClusterLocationsKML = "y",
-        ReportHierarchicalClusters = "y" # To get nested clusters, if any.
+        ReportHierarchicalClusters = "y", # To get nested clusters, if any.
+        OutputShapefiles = "y",
+        OutputGoogleMaps = "y",
+        MostLikelyClusterEachCentroidDBase = "y"
       )
     )
   )
