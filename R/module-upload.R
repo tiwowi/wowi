@@ -24,15 +24,20 @@ module_ui_upload <- function(id) {
         ### Left side of the nav panel ----
         bslib::card(
           style = "width: 350px; background-color: #fbfdfd;",
-          bslib::card_header(htmltools::tags$span("Upload Data",
+          bslib::card_header(htmltools::tags$span(
+            "Upload Data",
             style = "font-weight: 600px;"
           )),
           shiny::fileInput(
             inputId = ns("upload"),
-            label = htmltools::tags$span("Upload a .csv file",
+            label = htmltools::tags$span(
+              "Upload a .csv file",
               style = "font-size: 14px; font-weight: 500px;"
             ),
-            buttonLabel = htmltools::tags$span("Browse...", style = "color: white;"),
+            buttonLabel = htmltools::tags$span(
+              "Browse...",
+              style = "color: white;"
+            ),
             accept = ".csv"
           ),
           shiny::conditionalPanel(
@@ -55,28 +60,40 @@ module_ui_upload <- function(id) {
       ### Right side of the nav bar ----
       bslib::card(
         style = "background-color: #fbfdfd;",
-        bslib::card_header(htmltools::tags$span("Data Preview",
+        bslib::card_header(htmltools::tags$span(
+          "Data Preview",
           style = "font-weight: 600px"
         )),
-        shiny::conditionalPanel("output.fileUploaded == true",
+        shiny::conditionalPanel(
+          "output.fileUploaded == true",
           ns = ns,
           DT::DTOutput(outputId = ns("uploadedDataTable"))
         ),
-        shiny::conditionalPanel("output.showProgress == true",
+        shiny::conditionalPanel(
+          "output.showProgress == true",
           ns = ns,
           htmltools::tags$div(
             style = "text-align: center; padding: 50px;",
-            htmltools::tags$div(class = "spinner-border text-primary", role = "status"),
+            htmltools::tags$div(
+              class = "spinner-border text-primary",
+              role = "status"
+            ),
             htmltools::tags$h4("Loading data...", style = "margin-top: 20px;"),
             htmltools::tags$p("Please wait whilst the files gets processed.")
           )
         ),
-        shiny::conditionalPanel("!output.fileUploaded",
+        shiny::conditionalPanel(
+          "!output.fileUploaded",
           ns = ns,
           htmltools::tags$div(
             style = "text-align: center; padding: 50px;",
-            htmltools::tags$h4("No file uploaded yet", style = "color: #6c757d;"),
-            htmltools::tags$p("Please upload a .csv file to see the data preview.")
+            htmltools::tags$h4(
+              "No file uploaded yet",
+              style = "color: #6c757d;"
+            ),
+            htmltools::tags$p(
+              "Please upload a .csv file to see the data preview."
+            )
           )
         )
       )
@@ -138,7 +155,7 @@ module_server_upload <- function(id) {
         values$processing <- TRUE
         values$file_uploaded <- FALSE
 
-        progress <- Progress$new(session, min = 0, max = 100)
+        progress <- shiny::Progress$new(session, min = 0, max = 100)
         on.exit(progress$close())
 
         progress$set(message = "Reading file...", value = 20)
@@ -148,7 +165,10 @@ module_server_upload <- function(id) {
 
         tryCatch(
           {
-            df <- utils::read.csv(input$upload$datapath, stringsAsFactors = FALSE)
+            df <- utils::read.csv(
+              input$upload$datapath,
+              stringsAsFactors = FALSE
+            )
             progress$set(message = "Finalizing...", value = 80)
             Sys.sleep(0.3)
 
@@ -175,10 +195,17 @@ module_server_upload <- function(id) {
       output$fileInfo <- shiny::renderText({
         shiny::req(input$upload, values$data)
         base::paste0(
-          "Filename: ", input$upload$name, "\n",
-          "Size: ", base::round(input$upload$size / 1024, 2), " KB\n",
-          "Rows: ", base::format(base::nrow(values$data), big.mark = ","), "\n",
-          "Columns: ", base::ncol(values$data)
+          "Filename: ",
+          input$upload$name,
+          "\n",
+          "Size: ",
+          base::round(input$upload$size / 1024, 2),
+          " KB\n",
+          "Rows: ",
+          base::format(base::nrow(values$data), big.mark = ","),
+          "\n",
+          "Columns: ",
+          base::ncol(values$data)
         )
       })
 
@@ -186,23 +213,32 @@ module_server_upload <- function(id) {
       output$uploadedDataTable <- DT::renderDT({
         shiny::req(values$data)
         df_preview <- utils::head(values$data, 20)
-        DT::datatable(df_preview,
+        DT::datatable(
+          df_preview,
           rownames = FALSE,
           options = base::list(
             pageLength = 20,
             scrollX = FALSE,
             scrollY = "800px",
-            columnDefs = base::list(base::list(className = "dt-center", targets = "_all"))
+            columnDefs = base::list(base::list(
+              className = "dt-center",
+              targets = "_all"
+            ))
           ),
           caption = if (base::nrow(values$data) > 20) {
             base::paste(
-              "Showing first 20 rows of", base::format(base::nrow(values$data), big.mark = ","),
+              "Showing first 20 rows of",
+              base::format(base::nrow(values$data), big.mark = ","),
               "total rows"
             )
           } else {
             base::paste("Showing all", base::nrow(values$data), "rows")
           }
-        ) |> DT::formatStyle(columns = base::colnames(df_preview), fontSize = "13px")
+        ) |>
+          DT::formatStyle(
+            columns = base::colnames(df_preview),
+            fontSize = "13px"
+          )
       })
 
       ## Make the uploaded data be reactive for downtream modules ----
