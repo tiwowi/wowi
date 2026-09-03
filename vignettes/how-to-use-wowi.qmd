@@ -41,7 +41,7 @@ It evaluates whether observed clustering of cases exceeds what would be expected
 
 ### Using `wowi` to identify spatial clusters of high rates of acute malnutrition
 
-The `wowi` R package provides a tidy, reproducible interface for running Bernoulli spatial scan analysis via SaTScan. It depends on the [`rsatscan`](https://cran.r-project.org/web/packages/rsatscan/index.html) R package, which enables the use of `SaTScan` software from within R. While `rsatscan` offers general-purpose functionality, `wowi` was thoughtfully designed for acute malnutrition analysis. 
+The `wowi` R package provides a tidy, reproducible interface for running Bernoulli spatial scan analysis via SaTScan. It depends on the [`rsatscan`](https://cran.r-project.org/package=rsatscan) R package, which enables the use of `SaTScan` software from within R. While `rsatscan` offers general-purpose functionality, `wowi` was thoughtfully designed for acute malnutrition analysis. 
 
 #### What outputs does `wowi` provide?
 
@@ -63,7 +63,7 @@ The output described in point 4 offers an IPC Acute Malnutrition-related insight
 
 ## From data to clusters - the wowi analysis workflow 
 
-The analysis workflow with `wowi` begins with the standard anthropometric data processing steps - data wrangling and quality checks. For this purpose, wowi relies on the [`mwana`](https://https://mphimo.github.io/mwana/) package, which will be installed or updated automatically when you install `wowi`. Moreover, in the downstream analysis workflow, the `sf` package is required to generate shapefile-related outputs. Note that [`sf`](https://r-spatial.github.io/sf/) is not installed with wowi, therefore you must install it separately.
+The analysis workflow with `wowi` begins with the standard anthropometric data processing steps - data wrangling and quality checks. For this purpose, wowi relies on the [`mwana`](https://mphimo.github.io/mwana/) package, which will be installed or updated automatically when you install `wowi`. Moreover, in the downstream analysis workflow, the `sf` package is required to generate shapefile-related outputs. Note that [`sf`](https://r-spatial.github.io/sf/) is not installed with wowi, therefore you must install it separately.
 
 ::: {.callout-note}
 
@@ -115,7 +115,7 @@ a <- anthro |>
   )
 ```
 
-Hereafter, you can check the quality of the data. Learn how to do so [here](https://https://mphimo.github.io/mwana/articles/plausibility.html).
+Hereafter, you can check the quality of the data. Learn how to do so [here](https://mphimo.github.io/mwana/articles/plausibility.html).
 
 ### Running the spatial scan
 
@@ -146,15 +146,15 @@ d <- subset(a, district == "Kotido")
 #| eval: false
 
 ## Load rsatscan ----
-library(rsatscan)                                                     #<1>
+library(rsatscan) #<1>
 
 ## Set up the parameters ----
 results <- ww_run_satscan(
   .data = d,
   filename = "Kotido",
-  dir = directory,                                                    #<2>
-  sslocation = "/Applications/SaTScan.app/Contents/app",              #<3>
-  ssbatchfilename = "satscan",                                        #<4>
+  dir = directory,
+  sslocation = "/Applications/SaTScan.app/Contents/app",
+  ssbatchfilename = "satscan",
   satscan_version = "10.3.2",
   .by_area = FALSE,
   .scan_for = "high-low-rates",
@@ -167,13 +167,7 @@ results <- ww_run_satscan(
 )
 ```
 
-1. Although you will never use the `rsatscan` package explicitly, you must make it available in your environment. This is because it creates a specific environment object - `ssenv`. If this is not loaded, `wowi` will not run. 
-
-2. Specify the folder in which you would like the output results of your analysis to be saved.
-
-3. Provide the path to your SaTScan GUI installation. This varies depending on your operating system (OS). For macOS, it is typically "/Applications/SaTScan.app/Contents/app"; for Windows, "C:/Program Files/SaTScan".
-
-4. Indicate the name of the SaTScan batch file. For macOS, use "satscan"; for Windows, use "SaTScanBatch64". 
+Although you will never use the `rsatscan` package explicitly, you must make it available in your environment, since it creates a specific environment object, `ssenv`; if this is not loaded, `wowi` will not run. The `dir` argument specifies the folder in which you would like the output results of your analysis to be saved. The `sslocation` argument provides the path to your SaTScan GUI installation, which varies depending on your operating system (OS): for macOS, it is typically "/Applications/SaTScan.app/Contents/app", and for Windows, "C:/Program Files/SaTScan". The `ssbatchfilename` argument indicates the name of the SaTScan batch file: use "satscan" for macOS, and "SaTScanBatch64" for Windows.
 
 ##### Getting acquainted with the files
 The above code will generate seven files in the folder you specified using the `dir` argument. These files will share a common base name, as defined by the string provided in the `filename` argument.
