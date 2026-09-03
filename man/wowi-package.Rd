@@ -4,11 +4,11 @@
 \name{wowi-package}
 \alias{wowi}
 \alias{wowi-package}
-\title{wowi: Detect Spatial Clusters of High Acute Malnutrition Rates}
+\title{wowi: Detect Spatial Clusters of High Rates of Acute Malnutrition}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using SaTScan's Bernoulli spatial-scan model.
+Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using a Bernoulli spatial scan statistic, implemented via the SaTScan software (\url{https://www.satscan.org/}).
 }
 \seealso{
 Useful links:
@@ -21,6 +21,11 @@ Useful links:
 }
 \author{
 \strong{Maintainer}: Tomás Zaba \email{tomas.zaba@outlook.com} (\href{https://orcid.org/0000-0002-7079-3574}{ORCID}) [copyright holder]
+
+Authors:
+\itemize{
+  \item Tomás Zaba \email{tomas.zaba@outlook.com} (\href{https://orcid.org/0000-0002-7079-3574}{ORCID}) [copyright holder]
+}
 
 }
 \keyword{internal}

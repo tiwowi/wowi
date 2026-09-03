@@ -8,56 +8,68 @@
 
 ## ---- Module: Data Upload ----------------------------------------------------
 
-testthat::test_that(
-  desc = "Data upload server works as expected",
-  code = {
-    ### Initialise app ----
-    app <- shinytest2::AppDriver$new(
-      app_dir = testthat::test_path("fixtures"),
-      load_timeout = 10000,
-      wait = TRUE
-    )
+testthat::test_that(desc = "Data upload server works as expected", code = {
+  ### Skip test on CRAN ----
+  testthat::skip_on_cran()
 
-    ### Click on Data Upload tab ----
-    app$click(selector = "a[data-value='Data Upload']")
-    app$wait_for_idle(timeout = 40000)
+  ### Initialise app ----
+  app <- shinytest2::AppDriver$new(
+    app_dir = testthat::test_path("fixtures"),
+    load_timeout = 10000,
+    wait = TRUE
+  )
 
-    data <- read.csv(
-      file = system.file("app", "anthro_.csv", package = "wowi"),
-      sep = ","
-    )
-    tmpfile <- tempfile(fileext = ".csv")
-    write.csv(data, tmpfile, row.names = FALSE)
+  ### Click on Data Upload tab ----
+  app$click(selector = "a[data-value='Data Upload']")
+  app$wait_for_idle(timeout = 40000)
 
-    ### Upload to Data Uploading Tab, InputId = "upload" ----
-    app$upload_file("upload_data-upload" = tmpfile, wait_ = TRUE)
-    ### Wait for the upload to be processed ----
-    app$wait_for_idle(timeout = 15000)
+  data <- read.csv(
+    file = system.file("app", "anthro_.csv", package = "wowi"),
+    sep = ","
+  )
+  tmpfile <- tempfile(fileext = ".csv")
+  write.csv(data, tmpfile, row.names = FALSE)
 
-    ### Get values ----
-    vals <- app$get_values(
-      input = "upload_data-upload",
-      output = c("upload_data-fileUploaded", "upload_data-showProgress")
-    )
+  ### Upload to Data Uploading Tab, InputId = "upload" ----
+  app$upload_file("upload_data-upload" = tmpfile, wait_ = TRUE)
+  ### Wait for the upload to be processed ----
+  app$wait_for_idle(timeout = 15000)
 
-    ### Assert expectactions ----
-    testthat::expect_true(vals$output$"upload_data-fileUploaded")
-    testthat::expect_false(vals$output$"upload_data-showProgress")
-    testthat::expect_gte(vals$input$upload$size, 217575)
-    testthat::expect_equal(vals$input$upload$type, "text/csv")
-    testthat::expect_equal(
-      object = app$get_js("
+  ### Get values ----
+  vals <- app$get_values(
+    input = "upload_data-upload",
+    output = c("upload_data-fileUploaded", "upload_data-showProgress")
+  )
+
+  ### Assert expectactions ----
+  testthat::expect_true(vals$output$"upload_data-fileUploaded")
+  testthat::expect_false(vals$output$"upload_data-showProgress")
+  testthat::expect_gte(vals$input$upload$size, 217575)
+  testthat::expect_equal(vals$input$upload$type, "text/csv")
+  testthat::expect_equal(
+    object = app$get_js(
+      "
     $('#upload_data-uploadedDataTable thead th').map(function() {
       return $(this).text();
     }).get();
-  ")[-1][1:11] |> as.character(),
-      expected = c(
-        "district", "cluster", "sex", "age", "weight", "height", "oedema", "muac",
-        "latitude", "longitude", "precision"
-      )
+  "
+    )[-1][1:11] |>
+      as.character(),
+    expected = c(
+      "district",
+      "cluster",
+      "sex",
+      "age",
+      "weight",
+      "height",
+      "oedema",
+      "muac",
+      "latitude",
+      "longitude",
+      "precision"
     )
+  )
 
-    #### Stop the app ----
-    app$stop()
-  }
-)
+  #### Stop the app ----
+  app$stop()
+})
