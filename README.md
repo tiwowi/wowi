@@ -32,11 +32,10 @@ area wherein acute malnutrition is significantly high (hotspots) or low
 (coldspots), and unlikely to be due to chance alone.
 
 `wowi` is a wrapper package built on top of the
-[`rsatscan`](https://cran.r-project.org/package=rsatscan)
-package that enables the use of the [`SaTScan`](https://www.satscan.org)
-software from within R. While `rsatscan` provides general-purpose
-functionality, `wowi` was thoughtfully designed for acute malnutrition
-analysis.
+[`rsatscan`](https://cran.r-project.org/package=rsatscan) package that
+enables the use of the [`SaTScan`](https://www.satscan.org) software
+from within R. While `rsatscan` provides general-purpose functionality,
+`wowi` was thoughtfully designed for acute malnutrition analysis.
 
 To use `wowi`, you must have `SaTScan` installed on your machine, along
 with the [`mwana`](https://mphimo.github.io/mwana/) R package that is
