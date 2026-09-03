@@ -8,7 +8,7 @@ Authors@R:
            email = "tomas.zaba@outlook.com", 
            comment = c(ORCID = "0000-0002-7079-3574")
     )
-Description: Provides utilities for detecting statistically significant 
+Description: Utilities for detecting statistically significant 
    spatial clusters of high acute malnutrition rates using a Bernoulli 
    spatial scan statistic, implemented via the SaTScan software 
    (<https://www.satscan.org/>). 
