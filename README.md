@@ -2,7 +2,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using SaTScan’s Bernoulli spatial-scan model <a href="https://tiwowi.github.io/wowi/"><img src="man/figures/logo.png" align="right" width="200px" alt="wowi website" /></a>
+# wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using a Bernoulli spatial scan statistic, implemented via the SaTScan software (<https://www.satscan.org/>) <a href="https://tiwowi.github.io/wowi/"><img src="man/figures/logo.png" align="right" width="200px" alt="wowi website" /></a>
 
 <!-- badges: start -->  
 [![Project Status: Active – The project has reached a stable, usable
@@ -39,16 +39,16 @@ functionality, `wowi` was thoughtfully designed for acute malnutrition
 analysis.
 
 To use `wowi`, you must have `SaTScan` installed on your machine, along
-with the [`mwana`](https://nutriverse.io/mwana/dev/) R package that is
+with the [`mwana`](https://mphimo.github.io/mwana/) R package that is
 used under the hood to wrangle anthropometric data. The latter gets
 installed during `wowi` installation.
 
 ## Installation
 
-`wowi` is not yet on CRAN but can be installed through:
+You can install `wowi` from CRAN with:
 
 ``` r
-remotes::install_github(repo = "tiwowi/wowi", dependencies = TRUE)
+install.packages("mwana")
 ```
 
 ## What does `wowi` do?
