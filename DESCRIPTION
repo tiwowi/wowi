@@ -15,14 +15,14 @@ Encoding: UTF-8
 LazyData: true
 Language: en-GB
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 8.0.0
+RoxygenNote: 8.0.1
 URL: https://github.com/tiwowi/wowi, https://tiwowi.github.io/wowi/
 BugReports: https://github.com/tiwowi/wowi/issues
 Imports: 
     dplyr (>= 1.1.4),
     rlang (>= 1.1.6),
     rsatscan (>= 1.0.9),
-    mwana (>= 0.2.3),
+    mwana (>= 0.2.5),
     withr (>= 3.0.2),
     stringr (>= 1.5.1),
     tibble (>= 3.3.0),
@@ -40,8 +40,6 @@ Suggests:
     shinytest2 (>= 0.4.1),
     spelling (>= 2.3.1),
     testthat (>= 3.0.0)
-Remotes:
-    mphimo/mwana
 Config/testthat/edition: 3
 Depends: 
     R (>= 4.1.0)
