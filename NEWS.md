@@ -1,5 +1,11 @@
 # wowi 1.0.3
 
+## General updates 
+
+* Revised user-guide documentation to enhance clarity on type and format of the input variables to the app. 
+
+* Updated hyperlinks to open in a new browser tab.
+
 # wowi 1.0.2
 
 ## Bug fixes
