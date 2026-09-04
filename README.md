@@ -25,11 +25,11 @@ actionable insights on where acute malnutrition is most prevalent; this
 is essential for prioritising interventions, especially when resources
 are limited.
 
-`wowi` - an expression meaning *“where”* in Elómwè, a local language
+`wowi` - an expression that means *“where”* in Elómwè, a local language
 spoken in central-northern Mozambique - provides a set of convenient
-utilities for this purpose. It identifies locations across the survey
-area wherein acute malnutrition is significantly high (hotspots) or low
-(coldspots), and unlikely to be due to chance alone.
+utilities to identify locations across the survey area wherein acute
+malnutrition is significantly high (hotspots) or low (coldspots), and
+unlikely to be due to chance alone.
 
 `wowi` is a wrapper package built on top of the
 [`rsatscan`](https://cran.r-project.org/package=rsatscan) package that
