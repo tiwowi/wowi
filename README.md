@@ -2,7 +2,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using a Bernoulli spatial scan statistic, implemented via the SaTScan software (<https://www.satscan.org/>) <a href="https://tiwowi.github.io/wowi/"><img src="man/figures/logo.png" align="right" width="200px" alt="wowi website" /></a>
+# wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using a Bernoulli spatial scan statistic, implemented via the SaTScan software <a href="https://tiwowi.github.io/wowi/"><img src="man/figures/logo.png" align="right" width="200px" alt="wowi website" /></a>
 
 <!-- badges: start -->  
 [![Project Status: Active – The project has reached a stable, usable
@@ -47,7 +47,7 @@ installed during `wowi` installation.
 You can install `wowi` from CRAN with:
 
 ``` r
-install.packages("mwana")
+install.packages("wowi")
 ```
 
 ## What does `wowi` do?
