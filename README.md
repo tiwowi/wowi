@@ -104,18 +104,18 @@ citation("wowi")
 
     To cite wowi in publications use:
 
-      Tomás Zaba (2025). _wowi: Utilities for detecting statistically
-      significant spatial clusters of high acute malnutrition rates using
-      SaTScan's Bernoulli spatial-scan model_. R package version 1.0.2,
-      <https://tiwowi.github.io/wowi/>.
+      Tomás Zaba (2026). _wowi: Utilities for detecting statistically
+      significant spatial clusters of high acute malnutrition rates using a
+      Bernoulli spatial scan statistic, implemented via the SaTScan
+      software_. R package version 1.0.3, <https://tiwowi.github.io/wowi/>.
 
     A BibTeX entry for LaTeX users is
 
       @Manual{,
-        title = {wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using SaTScan's Bernoulli spatial-scan model},
+        title = {wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using a Bernoulli spatial scan statistic, implemented via the SaTScan software},
         author = {{Tomás Zaba}},
-        year = {2025},
-        note = {R package version 1.0.2},
+        year = {2026},
+        note = {R package version 1.0.3},
         url = {https://tiwowi.github.io/wowi/},
       }
 
