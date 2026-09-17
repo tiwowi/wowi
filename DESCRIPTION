@@ -10,8 +10,8 @@ Authors@R:
     )
 Description: Utilities for detecting statistically significant 
    spatial clusters of high acute malnutrition rates using a Bernoulli 
-   spatial scan statistic, implemented via the SaTScan software 
-   (<https://www.satscan.org/>). 
+   spatial scan statistic, implemented via the 'SaTScan' software 
+   <https://www.satscan.org/>. 
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
