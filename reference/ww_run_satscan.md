@@ -144,6 +144,7 @@ X-axis (north-south direction).
 ## Examples
 
 ``` r
+
 ## Wrangle data with `{mwana}` ----
 x <- anthro |>
   dplyr::rename(longitude = y, latitude = x) |>

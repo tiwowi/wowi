@@ -1,4 +1,4 @@
-# wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using SaTScan’s Bernoulli spatial-scan model
+# wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using a Bernoulli spatial scan statistic, implemented via the SaTScan software
 
 Child acute malnutrition can lead to death if not identified and treated
 on time. Driven by a combination of diverse factors, it often exhibits
@@ -10,30 +10,30 @@ actionable insights on where acute malnutrition is most prevalent; this
 is essential for prioritising interventions, especially when resources
 are limited.
 
-`wowi` - an expression meaning *“where”* in Elómwè, a local language
+`wowi` - an expression that means *“where”* in Elómwè, a local language
 spoken in central-northern Mozambique - provides a set of convenient
-utilities for this purpose. It identifies locations across the survey
-area wherein acute malnutrition is significantly high (hotspots) or low
-(coldspots), and unlikely to be due to chance alone.
+utilities to identify locations across the survey area wherein acute
+malnutrition is significantly high (hotspots) or low (coldspots), and
+unlikely to be due to chance alone.
 
 `wowi` is a wrapper package built on top of the
-[`rsatscan`](https://cran.r-project.org/web/packages/rsatscan/index.html)
-package that enables the use of the [`SaTScan`](https://www.satscan.org)
-software from within R. While `rsatscan` provides general-purpose
-functionality, `wowi` was thoughtfully designed for acute malnutrition
-analysis.
+[`rsatscan`](https://cran.r-project.org/package=rsatscan) package that
+enables the use of the [`SaTScan`](https://www.satscan.org) software
+from within R. While `rsatscan` provides general-purpose functionality,
+`wowi` was thoughtfully designed for acute malnutrition analysis.
 
 To use `wowi`, you must have `SaTScan` installed on your machine, along
-with the [`mwana`](https://nutriverse.io/mwana/dev/) R package that is
+with the [`mwana`](https://mphimo.github.io/mwana/) R package that is
 used under the hood to wrangle anthropometric data. The latter gets
 installed during `wowi` installation.
 
 ## Installation
 
-`wowi` is not yet on CRAN but can be installed through:
+You can install `wowi` from CRAN with:
 
 ``` r
-remotes::install_github(repo = "tiwowi/wowi", dependencies = TRUE)
+
+install.packages("wowi")
 ```
 
 ## What does `wowi` do?
@@ -63,6 +63,7 @@ the spot.
 ### A glimpse of the summary table
 
 ``` r
+
 ## # A tibble: 2 × 18
 ##  survey_area nr_EAs total_children total_cases `%_cases` location_ids   geo   radius span  children n_cases expected_cases observedExpected relative_risk
 ##  <chr>        <int>          <int>       <int>     <dbl> <chr>          <chr> <chr>  <chr>    <int>   <int>          <dbl>            <dbl>         <dbl>
@@ -79,6 +80,7 @@ benefit from the utilities needless to write code or be well versed in
 R. The app can be launched by running the bellow-given command:
 
 ``` r
+
 ww_run_app()
 ```
 
@@ -90,24 +92,25 @@ citation provided by a call to
 follows:
 
 ``` r
+
 citation("wowi")
 ```
 
 ``` R
 To cite wowi in publications use:
 
-  Tomás Zaba (2025). _wowi: Utilities for detecting statistically
-  significant spatial clusters of high acute malnutrition rates using
-  SaTScan's Bernoulli spatial-scan model_. R package version 1.0.2,
-  <https://tiwowi.github.io/wowi/>.
+  Tomás Zaba (2026). _wowi: Utilities for detecting statistically
+  significant spatial clusters of high acute malnutrition rates using a
+  Bernoulli spatial scan statistic, implemented via the SaTScan
+  software_. R package version 1.0.3, <https://tiwowi.github.io/wowi/>.
 
 A BibTeX entry for LaTeX users is
 
   @Manual{,
-    title = {wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using SaTScan's Bernoulli spatial-scan model},
+    title = {wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using a Bernoulli spatial scan statistic, implemented via the SaTScan software},
     author = {{Tomás Zaba}},
-    year = {2025},
-    note = {R package version 1.0.2},
+    year = {2026},
+    note = {R package version 1.0.3},
     url = {https://tiwowi.github.io/wowi/},
   }
 ```

@@ -4,7 +4,7 @@
 
 - [`wowi`](https://tiwowi.github.io/wowi/reference/wowi-package.md)
   [`wowi-package`](https://tiwowi.github.io/wowi/reference/wowi-package.md)
-  : wowi: Detect Spatial Clusters of High Acute Malnutrition Rates
+  : wowi: Detect Spatial Clusters of High Rates of Acute Malnutrition
 
 ## Main functions
 

@@ -14,6 +14,12 @@ ww_run_app(package = "wowi")
 
   package name ("wowi").
 
+## Value
+
+Called for its side effect of launching the `wowi` Shiny application in
+the user's default web browser. Returns `NULL` invisibly when the app
+session ends.
+
 ## Examples
 
 ``` r

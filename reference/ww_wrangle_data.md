@@ -77,6 +77,7 @@ IDs, latitude, and longitude.
 ## Examples
 
 ``` r
+
 ## Given a temporary directory ----
 tmp <- withr::local_tempdir()
 directory <- file.path(tmp, "input-files")
@@ -106,7 +107,7 @@ ww_wrangle_data(
   latitude = latitude,
   longitude = longitude
 )
-#> [1] "/tmp/RtmpPaPTrj/file22ec584dd75b/input-files/Locality"
+#> [1] "/tmp/RtmprcuOEz/file21d23ba31718/input-files/Locality"
 
 ## Show created files ----
 list.files(file.path(tmp, "input-files"))

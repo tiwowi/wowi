@@ -4,7 +4,7 @@ Define the analysis parameters required by SaTScan's GUI to conduct a
 Bernoulli-based purely spatial scan to detect either clusters of high
 rates of acute malnutrition or both high and low rates.
 
-User's input is limited to specifying the analysis area filename, the
+User input is limited to specifying the analysis area filename, the
 destination directory for the parameters file, the SaTScan version in
 use, and the type of clusters to be detected. All other parameters are
 pre-defined by this function.
@@ -46,6 +46,10 @@ ww_configure_satscan(
   A quoted string indicating the type of clusters to scan for. To scan
   for clusters of high rates only, set `.scan_for = "high-rates"`. To
   scan for both high and low rates, set `.scan_for = "high-low-rates"`.
+
+## Value
+
+A `SaTScan` parameters file with the extension `.prm`.
 
 ## Details
 
@@ -90,7 +94,7 @@ ww_wrangle_data(
   latitude = latitude,
   longitude = longitude
 )
-#> [1] "/tmp/RtmpPaPTrj/file22ec1b389646/input-files/Locality"
+#> [1] "/tmp/RtmprcuOEz/file21d210be48cd/input-files/Locality"
 
 library(rsatscan) # important to make `{wowi}` access `{rsatscan}`-specific eviroment
 #> rsatscan only does anything useful if you have SaTScan
