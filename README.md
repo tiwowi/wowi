@@ -10,9 +10,15 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![CRAN-status](https://www.r-pkg.org/badges/version/wowi.svg)](https://r-pkg.org/pkg/wowi)
+[![cran-checks](https://badges.cranchecks.info/worst/wowi.svg)](https://cran.r-project.org/web/checks/check_results_wowi.html)
+[![CRAN](https://img.shields.io/cran/l/wowi.svg)](https://CRAN.R-project.org/package=wowi)
+[![CRAN](https://cranlogs.r-pkg.org/badges/last-week/wowi.png)](https://CRAN.R-project.org/package=wowi)
+[![CRAN](https://cranlogs.r-pkg.org/badges/last-month/wowi.png)](https://CRAN.R-project.org/package=wowi)
+[![CRAN](https://cranlogs.r-pkg.org/badges/grand-total/wowi.png)](https://CRAN.R-project.org/package=wowi)
 [![R-CMD-check](https://github.com/tiwowi/wowi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tiwowi/wowi/actions/workflows/R-CMD-check.yaml)
-[![Codecov test
-coverage](https://codecov.io/gh/tiwowi/wowi/graph/badge.svg)](https://app.codecov.io/gh/tiwowi/wowi)  
+[![test-coverage](https://github.com/tiwowi/wowi/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/tiwowi/wowi/actions/workflows/test-coverage.yaml)
+[![codecov](https://codecov.io/gh/tiwowi/wowi/graph/badge.svg)](https://app.codecov.io/gh/tiwowi/wowi)  
 <!-- badges: end -->
 
 Child acute malnutrition can lead to death if not identified and treated
