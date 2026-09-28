@@ -1,16 +1,17 @@
-# --------------------------------------------
-# CITATION file created with {cffr} R package
+# ------------------------------------------------
+# CITATION.cff file created with {cffr} R package
 # See also: https://docs.ropensci.org/cffr/
-# --------------------------------------------
+# ------------------------------------------------
  
 cff-version: 1.2.0
 message: 'To cite package "wowi" in publications use:'
 type: software
 license: GPL-3.0-or-later
-title: 'wowi: Detect Spatial Clusters of High Acute Malnutrition Rates'
-version: 1.0.2
+title: 'wowi: Detect Spatial Clusters of High Rates of Acute Malnutrition'
+version: 1.0.3
 abstract: Utilities for detecting statistically significant spatial clusters of high
-  acute malnutrition rates using SaTScan's Bernoulli spatial-scan model.
+  acute malnutrition rates using a Bernoulli spatial scan statistic, implemented via
+  the SaTScan software (<https://www.satscan.org/>).
 authors:
 - family-names: Zaba
   given-names: Tomás
@@ -22,8 +23,8 @@ preferred-citation:
     of high acute malnutrition rates using SaTScan''s Bernoulli spatial-scan model'
   authors:
   - name: Tomás Zaba
-  year: '2025'
-  notes: R package version 1.0.2
+  year: '2026'
+  notes: R package version 1.0.3
   url: https://tiwowi.github.io/wowi/
 repository-code: https://github.com/tiwowi/wowi
 url: https://tiwowi.github.io/wowi/
@@ -61,7 +62,7 @@ references:
     given-names: Davis
     email: davis@posit.co
     orcid: https://orcid.org/0000-0003-4777-038X
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.dplyr
   version: '>= 1.1.4'
 - type: software
@@ -77,13 +78,13 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.rlang
   version: '>= 1.1.6'
 - type: software
   title: rsatscan
-  abstract: 'rsatscan: Tools, Classes, and Methods for Interfacing with ''SaTScan''
-    Stand-Alone Software'
+  abstract: 'rsatscan: Tools for Running the External ''SaTScan'' Software using R
+    Classes and Methods'
   notes: Imports
   url: https://www.satscan.org
   repository: https://CRAN.R-project.org/package=rsatscan
@@ -91,7 +92,7 @@ references:
   - family-names: Kleinman
     given-names: Ken
     email: ken.kleinman@gmail.com
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.rsatscan
   version: '>= 1.0.9'
 - type: software
@@ -100,6 +101,7 @@ references:
     of Wasting in R'
   notes: Imports
   url: https://mphimo.github.io/mwana/
+  repository: https://CRAN.R-project.org/package=mwana
   authors:
   - family-names: Zaba
     given-names: Tomás
@@ -110,8 +112,9 @@ references:
     orcid: https://orcid.org/0000-0002-4887-4415
   - family-names: Myatt
     given-names: Mark
-  year: '2025'
-  version: '>= 0.2.3'
+  year: '2026'
+  doi: 10.32614/CRAN.package.mwana
+  version: '>= 0.2.5'
 - type: software
   title: withr
   abstract: 'withr: Run Code ''With'' Temporarily Modified Global State'
@@ -135,7 +138,7 @@ references:
     email: hadley@posit.co
   - family-names: Chang
     given-names: Winston
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.withr
   version: '>= 3.0.2'
 - type: software
@@ -148,7 +151,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.stringr
   version: '>= 1.5.1'
 - type: software
@@ -165,7 +168,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@rstudio.com
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.tibble
   version: '>= 3.3.0'
 - type: software
@@ -209,7 +212,7 @@ references:
     given-names: Alan
   - family-names: Borges
     given-names: Barbara
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.shiny
   version: '>= 1.11.1'
 - type: software
@@ -227,7 +230,7 @@ references:
   - family-names: Sali
     given-names: Andras
     email: andras.sali@alphacruncher.hu
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.shinycssloaders
   version: '>= 1.1.0'
 - type: software
@@ -248,7 +251,7 @@ references:
     given-names: Garrick
     email: garrick@posit.co
     orcid: https://orcid.org/0000-0002-7111-0077
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.bslib
   version: '>= 0.9.0'
 - type: software
@@ -264,7 +267,7 @@ references:
   - family-names: Walker
     given-names: Alexander
     email: Alexander.Walker1989@gmail.com
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.openxlsx
   version: '>= 4.2.8.1'
 - type: software
@@ -285,7 +288,7 @@ references:
     given-names: Garrick
     email: garrick@posit.co
     orcid: https://orcid.org/0000-0002-7111-0077
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.DT
   version: '>= 0.34.0'
 - type: software
@@ -315,7 +318,7 @@ references:
     email: yihui@posit.co
   - family-names: Allen
     given-names: Jeff
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.htmltools
   version: '>= 0.5.8.1'
 - type: software
@@ -328,7 +331,7 @@ references:
   - family-names: Hester
     given-names: Jim
     email: james.f.hester@gmail.com
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.covr
   version: '>= 3.6.4'
 - type: software
@@ -342,7 +345,7 @@ references:
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.knitr
   version: '>= 1.50'
 - type: software
@@ -387,7 +390,7 @@ references:
     given-names: Richard
     email: rich@posit.co
     orcid: https://orcid.org/0000-0003-3925-190X
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.rmarkdown
   version: '>= 2.30'
 - type: software
@@ -405,7 +408,7 @@ references:
     given-names: Christophe
     email: cderv@posit.co
     orcid: https://orcid.org/0000-0003-4474-2498
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.quarto
   version: '>= 1.4.4'
 - type: software
@@ -419,7 +422,7 @@ references:
     given-names: Barret
     email: barret@posit.co
     orcid: https://orcid.org/0000-0001-9986-114X
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.shinytest2
   version: '>= 0.4.1'
 - type: software
@@ -436,7 +439,7 @@ references:
   - family-names: Hester
     given-names: Jim
     email: james.hester@rstudio.com
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.spelling
   version: '>= 2.3.1'
 - type: software
@@ -449,7 +452,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.testthat
   version: '>= 3.0.0'
 - type: software
@@ -458,9 +461,12 @@ references:
   url: https://www.R-project.org/
   authors:
   - name: R Core Team
+    website: https://ror.org/02zz1nj61
   institution:
     name: R Foundation for Statistical Computing
+    website: https://ror.org/05qewa988
     address: Vienna, Austria
-  year: '2025'
+  year: '2026'
+  doi: 10.32614/R.manuals
   version: '>= 4.1.0'
 

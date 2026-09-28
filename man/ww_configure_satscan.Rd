@@ -28,12 +28,15 @@ recommended to use the latest version.}
 To scan for clusters of high rates only, set \code{.scan_for = "high-rates"}.
 To scan for both high and low rates, set \code{.scan_for = "high-low-rates"}.}
 }
+\value{
+A \code{SaTScan} parameters file with the extension \code{.prm}.
+}
 \description{
 Define the analysis parameters required by SaTScan's GUI to conduct a
 Bernoulli-based purely spatial scan to detect either clusters of high rates
 of acute malnutrition or both high and low rates.
 
-User's input is limited to specifying the analysis area filename, the destination
+User input is limited to specifying the analysis area filename, the destination
 directory for the parameters file, the SaTScan version in use, and the type of
 clusters to be detected. All other parameters are pre-defined by this function.
 }

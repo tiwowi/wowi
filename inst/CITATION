@@ -1,9 +1,9 @@
 bibentry(
   bibtype  = "Manual",
   header   = "To cite wowi in publications use:",
-  title    = "wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using SaTScan's Bernoulli spatial-scan model",
+  title    = "wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using a Bernoulli spatial scan statistic, implemented via the SaTScan software",
   author   = person("Tomás Zaba"),
-  year     = 2025,
-  note     = "R package version 1.0.2",
+  year     = 2026,
+  note     = "R package version 1.0.3",
   url      = "https://tiwowi.github.io/wowi/"
 )

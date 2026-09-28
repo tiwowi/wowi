@@ -7,7 +7,7 @@
 #' Bernoulli-based purely spatial scan to detect either clusters of high rates
 #' of acute malnutrition or both high and low rates.
 #'
-#' User's input is limited to specifying the analysis area filename, the destination
+#' User input is limited to specifying the analysis area filename, the destination
 #' directory for the parameters file, the SaTScan version in use, and the type of
 #' clusters to be detected. All other parameters are pre-defined by this function.
 #'
@@ -26,6 +26,8 @@
 #' @param .scan_for A quoted string indicating the type of clusters to scan for.
 #' To scan for clusters of high rates only, set `.scan_for = "high-rates"`.
 #' To scan for both high and low rates, set `.scan_for = "high-low-rates"`.
+#'
+#' @returns A `SaTScan` parameters file with the extension `.prm`.
 #'
 #' @details
 #' For more information on Bernoulli purely spatial scans, refer to the
@@ -83,10 +85,11 @@
 #' @export
 #'
 ww_configure_satscan <- function(
-    filename = character(),
-    params_dir = character(),
-    satscan_version = character(),
-    .scan_for = c("high-rates", "high-low-rates")) {
+  filename = character(),
+  params_dir = character(),
+  satscan_version = character(),
+  .scan_for = c("high-rates", "high-low-rates")
+) {
   ## Enforce options in `.scan_for` ----
   .scan_for <- match.arg(.scan_for)
 
@@ -148,7 +151,10 @@ ww_configure_satscan <- function(
         LaunchMapViewer = "n",
         CompressKMLtoKMZ = "n",
         IncludeClusterLocationsKML = "y",
-        ReportHierarchicalClusters = "y" # To get nested clusters, if any.
+        ReportHierarchicalClusters = "y", # To get nested clusters, if any.
+        OutputShapefiles = "y",
+        OutputGoogleMaps = "y",
+        MostLikelyClusterEachCentroidDBase = "y"
       )
     )
   )

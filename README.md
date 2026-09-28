@@ -2,7 +2,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using SaTScan’s Bernoulli spatial-scan model <a href="https://tiwowi.github.io/wowi/"><img src="man/figures/logo.png" align="right" width="200px" alt="wowi website" /></a>
+# wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using a Bernoulli spatial scan statistic, implemented via the SaTScan software <a href="https://tiwowi.github.io/wowi/"><img src="man/figures/logo.png" align="right" width="200px" alt="wowi website" /></a>
 
 <!-- badges: start -->  
 [![Project Status: Active – The project has reached a stable, usable
@@ -10,9 +10,15 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![CRAN-status](https://www.r-pkg.org/badges/version/wowi.svg)](https://r-pkg.org/pkg/wowi)
+[![cran-checks](https://badges.cranchecks.info/worst/wowi.svg)](https://cran.r-project.org/web/checks/check_results_wowi.html)
+[![CRAN](https://img.shields.io/cran/l/wowi.svg)](https://CRAN.R-project.org/package=wowi)
+[![CRAN](https://cranlogs.r-pkg.org/badges/last-week/wowi.png)](https://CRAN.R-project.org/package=wowi)
+[![CRAN](https://cranlogs.r-pkg.org/badges/last-month/wowi.png)](https://CRAN.R-project.org/package=wowi)
+[![CRAN](https://cranlogs.r-pkg.org/badges/grand-total/wowi.png)](https://CRAN.R-project.org/package=wowi)
 [![R-CMD-check](https://github.com/tiwowi/wowi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tiwowi/wowi/actions/workflows/R-CMD-check.yaml)
-[![Codecov test
-coverage](https://codecov.io/gh/tiwowi/wowi/graph/badge.svg)](https://app.codecov.io/gh/tiwowi/wowi)  
+[![test-coverage](https://github.com/tiwowi/wowi/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/tiwowi/wowi/actions/workflows/test-coverage.yaml)
+[![codecov](https://codecov.io/gh/tiwowi/wowi/graph/badge.svg)](https://app.codecov.io/gh/tiwowi/wowi)  
 <!-- badges: end -->
 
 Child acute malnutrition can lead to death if not identified and treated
@@ -25,30 +31,29 @@ actionable insights on where acute malnutrition is most prevalent; this
 is essential for prioritising interventions, especially when resources
 are limited.
 
-`wowi` - an expression meaning *“where”* in Elómwè, a local language
+`wowi` - an expression that means *“where”* in Elómwè, a local language
 spoken in central-northern Mozambique - provides a set of convenient
-utilities for this purpose. It identifies locations across the survey
-area wherein acute malnutrition is significantly high (hotspots) or low
-(coldspots), and unlikely to be due to chance alone.
+utilities to identify locations across the survey area wherein acute
+malnutrition is significantly high (hotspots) or low (coldspots), and
+unlikely to be due to chance alone.
 
 `wowi` is a wrapper package built on top of the
-[`rsatscan`](https://cran.r-project.org/web/packages/rsatscan/index.html)
-package that enables the use of the [`SaTScan`](https://www.satscan.org)
-software from within R. While `rsatscan` provides general-purpose
-functionality, `wowi` was thoughtfully designed for acute malnutrition
-analysis.
+[`rsatscan`](https://cran.r-project.org/package=rsatscan) package that
+enables the use of the [`SaTScan`](https://www.satscan.org) software
+from within R. While `rsatscan` provides general-purpose functionality,
+`wowi` was thoughtfully designed for acute malnutrition analysis.
 
 To use `wowi`, you must have `SaTScan` installed on your machine, along
-with the [`mwana`](https://nutriverse.io/mwana/dev/) R package that is
+with the [`mwana`](https://mphimo.github.io/mwana/) R package that is
 used under the hood to wrangle anthropometric data. The latter gets
 installed during `wowi` installation.
 
 ## Installation
 
-`wowi` is not yet on CRAN but can be installed through:
+You can install `wowi` from CRAN with:
 
 ``` r
-remotes::install_github(repo = "tiwowi/wowi", dependencies = TRUE)
+install.packages("wowi")
 ```
 
 ## What does `wowi` do?
@@ -105,18 +110,18 @@ citation("wowi")
 
     To cite wowi in publications use:
 
-      Tomás Zaba (2025). _wowi: Utilities for detecting statistically
-      significant spatial clusters of high acute malnutrition rates using
-      SaTScan's Bernoulli spatial-scan model_. R package version 1.0.2,
-      <https://tiwowi.github.io/wowi/>.
+      Tomás Zaba (2026). _wowi: Utilities for detecting statistically
+      significant spatial clusters of high acute malnutrition rates using a
+      Bernoulli spatial scan statistic, implemented via the SaTScan
+      software_. R package version 1.0.3, <https://tiwowi.github.io/wowi/>.
 
     A BibTeX entry for LaTeX users is
 
       @Manual{,
-        title = {wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using SaTScan's Bernoulli spatial-scan model},
+        title = {wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using a Bernoulli spatial scan statistic, implemented via the SaTScan software},
         author = {{Tomás Zaba}},
-        year = {2025},
-        note = {R package version 1.0.2},
+        year = {2026},
+        note = {R package version 1.0.3},
         url = {https://tiwowi.github.io/wowi/},
       }
 

@@ -14,3 +14,5 @@
 ˆvignettes/using-wowi.html$
 _\.new\.png$
 ^README\.qmd$
+^cran-comments\.md$
+^CRAN-SUBMISSION$

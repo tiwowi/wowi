@@ -18,11 +18,16 @@ library(shinycssloaders)
 ## ---- User's navigation bars -------------------------------------------------
 
 ui <- tagList(
-
   ### Connect to CSS stylesheet ----
   tags$head(
-    tags$link(rel = "stylesheet", type = "text/css", href = "stylesheet.css")
+    tags$meta(charset = "UTF-8"),
+    tags$meta(name = "description", content = "wowi App"),
+    tags$title("wowi App"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "stylesheet.css"),
+    tags$link(rel = "icon", href = "logo.png"),
   ),
+
+  ### Navigation bar ----
   page_navbar(
     title = tags$div(
       style = "display: flex; align-items: center; justify-content: space-between; width: 100%;",
@@ -30,11 +35,13 @@ ui <- tagList(
       ### Left side of the page navigation bar: app name and logo ----
       tags$div(
         style = "display: flex; align-items: center;",
-        tags$span("wowi",
+        tags$span(
+          "wowi",
           style = "margin-right: 10px; font-family: Arial, sans-serif; font-size: 50px;"
         ),
         tags$a(
           href = "https://tiwowi.github.io/wowi/",
+          target = "_blank",
           tags$span(
             tags$img(src = "logo.png", height = "40px"),
             style = "margin-right: 20px;"
@@ -43,7 +50,8 @@ ui <- tagList(
       ),
 
       ### Right side of the page navigation bar ----
-      tags$span("v1.0.2",
+      tags$span(
+        paste0("v", utils::packageVersion("wowi")),
         id = "app-version",
         style = "font-size: 12.5px; color:  rgba(31, 42, 68, 0.58);
         position: fixed; top: 40px; right: 20px;"
@@ -89,7 +97,9 @@ ui <- tagList(
                   tags$h4(
                     style = "margin: 0; font-weight: normal; line-height: 1.2; padding-top: 4px;",
                     list(
-                      "A simplified workflow of the ", tags$code("wowi"), " package for non-R users"
+                      "A simplified workflow of the ",
+                      tags$code("wowi"),
+                      " package for non-R users"
                     )
                   )
                 ),
@@ -97,6 +107,7 @@ ui <- tagList(
                 # Right side: logo
                 tags$a(
                   href = "https://tiwowi.github.io/wowi/",
+                  target = "_blank",
                   tags$img(
                     src = "logo.png",
                     height = "160px",
@@ -116,19 +127,23 @@ ui <- tagList(
                 conceived to help users detect spatial clusters - whether
                 high-only or high and low rates - of acute malnutrition that are
                 unlikely to be ocurring by chance. It automates the key analysis
-                workflow of the package", tags$code("wowi"), "for non-R users.
+                workflow of the package",
+                tags$code("wowi"),
+                "for non-R users.
                 "
               ),
               tags$p(
                 "
                 The app only does anything useful if you have SaTScan installed on
-                your computer, and if the", tags$code("mwana"), "package is installed in R.
+                your computer, and if the",
+                tags$code("mwana"),
+                "package is installed in R.
                 "
               ),
               tags$p(
                 "
                   The app is divided into three easy-to-navigate tabs, apart from
-                  the Home - where you are now:
+                  the Home where you are now:
                   "
               ),
               tags$ol(
@@ -150,7 +165,8 @@ ui <- tagList(
                 comma-separated-value format (.csv); this is the only accepted
                 format. Click on the 'Browse' button to locate the file to be
                 uploaded from your computer; it is as simple as that.
-                Once uploaded, the first 20 rows will be priviewed on the right side.
+                Once uploaded, the first 20 rows will be priviewed on the right 
+                side of the tab.
                 "
               ),
               tags$p(
@@ -159,8 +175,11 @@ ui <- tagList(
                   tags$p(
                     "
                         The data to be uploaded must have been tidy up in accordance
-                        to the below-described app's", tags$b("input file"), "and",
-                    tags$b("input variable"), "requirements:
+                        to the below described app ",
+                    tags$b("input file"),
+                    "and",
+                    tags$b("input variable"),
+                    "requirements:
                         "
                   ),
                   tags$br(),
@@ -168,9 +187,10 @@ ui <- tagList(
                     tags$li(
                       tags$b("Input file requirements"),
                       tags$p(
-                        tags$b("File naming:"), "the file name must use
+                        tags$b("File naming:"),
+                        "the file name must use
                             underscore ( _ ) to separate words. Hyphen ( - ) or
-                            simple spaces will lead to errors along the uploading
+                            simple spaces could lead to errors along the uploading
                             process. Consider the following naming example:",
                         tags$em("my_file_to_upload.csv")
                       )
@@ -211,25 +231,32 @@ ui <- tagList(
                             "
                         ),
                         tags$li(
+                          tags$b("Weight"),
+                          "child's weight in kilograms. The variable name must
+                             be written in lowercase ('weight')."
+                        ),
+                        tags$li(
+                          tags$b("Height"),
+                          "child's height in centimetres. The variable name must
+                             be written in lowercase ('height')."
+                        ),
+                        tags$li(
                           tags$b("MUAC:"),
                           "
                             values must be given in millimetres. Ensure that there
                             no strange numbers, such as '114.1'. The presence of
                             decimal places (even if one case) will raise error
-                            in the data wrangling tab and hault the app.
+                            in the data wrangling tab and hault the app. 
+                            The variable name must be written in lowercase ('muac').
                             "
-                        ),
-                        tags$li(
-                          tags$b("Weight:"), "values must be given in Kilograms."
-                        ),
-                        tags$li(
-                          tags$b("Height:"), "values must be given in centimetres."
                         ),
                         tags$li(
                           tags$b("Oedema:"),
                           "
-                            values must be given in 'y' for yes and 'n' for no.
-                            "
+                          Values must be given in 'y' for yes, and 'n' for no. 
+                          Variable names may follow any format. For longer names, 
+                          separate words with an underscore.
+                          "
                         )
                       )
                     )
@@ -241,10 +268,12 @@ ui <- tagList(
                       style = "font-weight: normal;",
                       tags$ul(
                         tags$li(
-                          tags$b("Latitude: x-axis")
+                          tags$b("Latitude:"),
+                          "x-axis. Variable names may follow any format."
                         ),
                         tags$li(
-                          tags$b("Longitude: y-axis")
+                          tags$b("Longitude:"),
+                          "y-axis. Variable names may follow any format."
                         )
                       )
                     )
@@ -336,15 +365,27 @@ ui <- tagList(
             tags$ul(
               tags$li(
                 tags$code("mwana"),
-                tags$a(href = "https://mphimo.github.io/mwana/", "click here")
+                tags$a(
+                  href = "https://mphimo.github.io/mwana/",
+                  target = "_blank",
+                  "click here"
+                )
               ),
               tags$li(
                 tags$code("wowi"),
-                tags$a(href = "https://tiwowi.github.io/wowi/", "click here")
+                tags$a(
+                  href = "https://tiwowi.github.io/wowi/",
+                  target = "_blank",
+                  "click here"
+                )
               ),
               tags$li(
                 tags$code("SaTScan"),
-                tags$a(href = "https://www.satscan.org", "click here")
+                tags$a(
+                  href = "https://www.satscan.org",
+                  target = "_blank",
+                  "click here"
+                )
               )
             )
           )

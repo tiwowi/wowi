@@ -9,6 +9,11 @@ ww_run_app(package = "wowi")
 \arguments{
 \item{package}{package name ("wowi").}
 }
+\value{
+Called for its side effect of launching the \code{wowi} Shiny
+application in the user's default web browser. Returns \code{NULL}
+invisibly when the app session ends.
+}
 \description{
 Initialise built-in Shiny application
 }

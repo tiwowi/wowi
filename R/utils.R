@@ -2,25 +2,28 @@
 #'
 #' @keywords internal
 #'
-#' 
-skip_if_no_satscan <- function(ss_path = "/Applications/SaTScan.app/Contents/app/satscan") {
-  testthat::skip_if_not(file.exists(ss_path), message = "SaTScan is not installed or not found")
+#'
+skip_if_no_satscan <- function(
+  ss_path = "/Applications/SaTScan.app/Contents/app/satscan"
+) {
+  testthat::skip_if_not(
+    file.exists(ss_path),
+    message = "SaTScan is not installed or not found"
+  )
 }
 
 #'
-#' Extract results from SaTScan-text-based output 
-#' 
+#' Extract results from SaTScan-text-based output
+#'
 #' @param file SaTScan-text-based output result given as "main" to be parsed
-#' 
+#'
 #' @keywords internal
-#' 
-#' 
-
+#'
+#'
 
 # nocov start
 
 parse_clusters <- function(file) {
-
   ## Subset SaTScan-text-based output file ----
   txt <- file$main
 
@@ -33,7 +36,9 @@ parse_clusters <- function(file) {
 
   ## Guard: align pairs if counts differ
   n <- min(length(cluster_start), length(coords))
-  if (n == 0) return(tibble::tibble())
+  if (n == 0) {
+    return(tibble::tibble())
+  }
 
   out <- vector("list", n)
 
@@ -54,9 +59,11 @@ parse_clusters <- function(file) {
 
     ## Build tibble for this cluster (offsets are stable in SaTScan output)
     out[[j]] <- tibble::tibble(
-
       ### Summary metadata (from fixed lines in your example) ----
-      survey_area = as.character(stringr::str_extract_all(basename(txt[[area_name]]), "^[^.]+")),
+      survey_area = as.character(stringr::str_extract_all(
+        basename(txt[[area_name]]),
+        "^[^.]+"
+      )),
       nr_EAs = as.integer(stringr::str_extract(txt[18], "\\d+")),
       total_children = as.integer(stringr::str_extract(txt[19], "\\d+")),
       total_cases = as.integer(stringr::str_extract(txt[20], "\\d+")),
@@ -64,25 +71,48 @@ parse_clusters <- function(file) {
 
       ### Cluster-specific ----
       location_ids = location_ids,
-      geo = stringr::str_extract(txt[coord],
-        "\\d+\\.\\d+\\s+\\w\\,\\s+\\d+\\.\\d+\\s+\\w"),
-      radius = stringr::str_extract(txt[coord],"[0-9]+\\.[0-9]+\\s*km"),
+      geo = stringr::str_extract(
+        txt[coord],
+        "\\d+\\.\\d+\\s+\\w\\,\\s+\\d+\\.\\d+\\s+\\w"
+      ),
+      radius = stringr::str_extract(txt[coord], "[0-9]+\\.[0-9]+\\s*km"),
       span = stringr::str_extract(txt[coord + 1], "[0-9]+\\.[0-9]+\\s*km"),
       children = as.integer(stringr::str_extract(txt[coord + 2], "\\d+")),
       n_cases = as.integer(stringr::str_extract(txt[coord + 3], "\\d+")),
-      expected_cases = as.double(stringr::str_extract(txt[coord + 4], "[0-9]+\\.[0-9]+")),
-      observedExpected = as.double(stringr::str_extract(txt[coord + 5], "[0-9]+\\.[0-9]+")),
-      relative_risk = as.double(stringr::str_extract(txt[coord + 6], "[0-9]+\\.[0-9]+")),
-      `%_cases_in_area` = as.double(stringr::str_extract(txt[coord + 7], "[0-9]+\\.?[0-9]*")),
-      log_lik_ratio = as.double(stringr::str_extract(txt[coord + 8], "[0-9]+\\.[0-9]+")),
-      pvalue = as.double(stringr::str_extract(txt[coord + 9], "[0-9]+\\.?[0-9]*")),
+      expected_cases = as.double(stringr::str_extract(
+        txt[coord + 4],
+        "[0-9]+\\.[0-9]+"
+      )),
+      observedExpected = as.double(stringr::str_extract(
+        txt[coord + 5],
+        "[0-9]+\\.[0-9]+"
+      )),
+      relative_risk = as.double(stringr::str_extract(
+        txt[coord + 6],
+        "[0-9]+\\.[0-9]+"
+      )),
+      `%_cases_in_area` = as.double(stringr::str_extract(
+        txt[coord + 7],
+        "[0-9]+\\.?[0-9]*"
+      )),
+      log_lik_ratio = as.double(stringr::str_extract(
+        txt[coord + 8],
+        "[0-9]+\\.[0-9]+"
+      )),
+      pvalue = as.double(stringr::str_extract(
+        txt[coord + 9],
+        "[0-9]+\\.?[0-9]*"
+      )),
 
       ### Check if IPC AMN reqs for survey disaggregation is met ----
       ipc_amn = ifelse(
-        length(strsplit(location_ids, ",\\s*")[[1]]) >= 5 & !is.na(children) & children >= 100,
-        "yes", "no"
+        length(strsplit(location_ids, ",\\s*")[[1]]) >= 5 &
+          !is.na(.data$children) &
+          .data$children >= 100,
+        "yes",
+        "no"
       )
-    ) 
+    )
   }
 
   ## Return binded results ----
