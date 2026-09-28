@@ -1,6 +1,6 @@
 Package: wowi
 Title: Detect Spatial Clusters of High Rates of Acute Malnutrition
-Version: 1.0.2
+Version: 1.0.3
 Authors@R: 
     person(given = "Tomás", 
             family = "Zaba",
@@ -10,8 +10,8 @@ Authors@R:
     )
 Description: Utilities for detecting statistically significant 
    spatial clusters of high acute malnutrition rates using a Bernoulli 
-   spatial scan statistic, implemented via the SaTScan software 
-   (<https://www.satscan.org/>). 
+   spatial scan statistic, implemented via the 'SaTScan' software 
+   <https://www.satscan.org/>. 
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true

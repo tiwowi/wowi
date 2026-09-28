@@ -4,18 +4,25 @@ format: gfm
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using a Bernoulli spatial scan statistic, implemented via the SaTScan software (<https://www.satscan.org/>) <a href="https://tiwowi.github.io/wowi/"><img src="man/figures/logo.png" align="right" width="200px" alt="wowi website" /></a>
+# wowi: Utilities for detecting statistically significant spatial clusters of high acute malnutrition rates using a Bernoulli spatial scan statistic, implemented via the SaTScan software <a href="https://tiwowi.github.io/wowi/"><img src="man/figures/logo.png" align="right" width="200px" alt="wowi website" /></a>
 
  <!-- badges: start -->  
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![CRAN-status](https://www.r-pkg.org/badges/version/wowi.svg)](https://r-pkg.org/pkg/wowi)
+[![cran-checks](https://badges.cranchecks.info/worst/wowi.svg)](https://cran.r-project.org/web/checks/check_results_wowi.html)
+[![CRAN](https://img.shields.io/cran/l/wowi.svg)](https://CRAN.R-project.org/package=wowi)
+[![CRAN](https://cranlogs.r-pkg.org/badges/last-week/wowi)](https://CRAN.R-project.org/package=wowi)
+[![CRAN](https://cranlogs.r-pkg.org/badges/last-month/wowi)](https://CRAN.R-project.org/package=wowi)
+[![CRAN](https://cranlogs.r-pkg.org/badges/grand-total/wowi)](https://CRAN.R-project.org/package=wowi)
 [![R-CMD-check](https://github.com/tiwowi/wowi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tiwowi/wowi/actions/workflows/R-CMD-check.yaml)
-[![Codecov test coverage](https://codecov.io/gh/tiwowi/wowi/graph/badge.svg)](https://app.codecov.io/gh/tiwowi/wowi)  
+[![test-coverage](https://github.com/tiwowi/wowi/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/tiwowi/wowi/actions/workflows/test-coverage.yaml)
+[![codecov](https://codecov.io/gh/tiwowi/wowi/graph/badge.svg)](https://app.codecov.io/gh/tiwowi/wowi)  
  <!-- badges: end -->
 
 Child acute malnutrition can lead to death if not identified and treated on time. Driven by a combination of diverse factors, it often exhibits spatial variation. The levels of acute malnutrition are commonly measured through surveys that are representative of the area of interest. Results are then used to inform programme responses — to find and treat the affected children. To that end, programme managers require actionable insights on where acute malnutrition is most prevalent; this is essential for prioritising interventions, especially when resources are limited.  
 
-`wowi` - an expression meaning *“where”* in Elómwè, a local language spoken in central-northern Mozambique - provides a set of convenient utilities for this purpose. It identifies locations across the survey area wherein acute malnutrition is significantly high (hotspots) or low (coldspots), and unlikely to be due to chance alone.  
+`wowi` - an expression that means *“where”* in Elómwè, a local language spoken in central-northern Mozambique - provides a set of convenient utilities to identify locations across the survey area wherein acute malnutrition is significantly high (hotspots) or low (coldspots), and unlikely to be due to chance alone.  
 
 `wowi` is a wrapper package built on top of the [`rsatscan`](https://cran.r-project.org/package=rsatscan) package that enables the use of the [`SaTScan`](https://www.satscan.org) software from within R. While `rsatscan` provides general-purpose functionality, `wowi` was thoughtfully designed for acute malnutrition analysis. 
 
@@ -29,7 +36,7 @@ You can install `wowi` from CRAN with:
 #| label: installation
 #| echo: true
 #| eval: false
-install.packages("mwana")
+install.packages("wowi")
 ```
 
 ## What does `wowi` do? 

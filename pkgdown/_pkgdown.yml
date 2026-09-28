@@ -16,7 +16,7 @@ destination: docs
 home:
   links:
   - text: Read more about rsatscan
-    href: https://cran.r-project.org/web/packages/rsatscan/index.html
+    href: https://CRAN.R-project.org/package=rsatscan
   - text: Read more about SaTScan
     href: https://www.satscan.org
   - text: Read more about mwana

@@ -1,30 +1,34 @@
 #'
-#' 
+#'
 #' Helper function to locate app directory
-#' 
+#'
 #' @keywords internal
-#' 
+#'
 get_app_dir <- function(package = "wowi") {
   app_dir <- system.file("app", package = package)
   if (app_dir == "") {
-    stop("Could not find Shiny directory. Try re-installing `wowi`.", call. = FALSE)
+    stop(
+      "Could not find Shiny directory. Try re-installing `wowi`.",
+      call. = FALSE
+    )
   }
   app_dir
 }
 
 
-
 #'
-#' 
+#'
 #' Initialise built-in Shiny application
-#' 
+#'
 #' @param package package name ("wowi").
-#' 
-#' @return NULL
-#' 
+#'
+#' @return Called for its side effect of launching the `wowi` Shiny
+#'   application in the user's default web browser. Returns `NULL`
+#'   invisibly when the app session ends.
+#'
 #' @examples
 #' if(interactive()) ww_run_app()
-#' 
+#'
 #' @export
 
 # nocov start
