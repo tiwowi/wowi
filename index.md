@@ -36,6 +36,14 @@ You can install `wowi` from CRAN with:
 install.packages("wowi")
 ```
 
+or you can install its development version from GitHub with:
+
+``` r
+
+# install.packages("pak")
+pak::pak("tiwowi/wowi")
+```
+
 ## What does `wowi` do?
 
 It takes a dataset with GPS coordinates (latitude and longitude), scans
