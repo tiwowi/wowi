@@ -41,6 +41,10 @@ install.packages("wowi")
 
 or you can install its development version from GitHub with:
 ```{r}
+#| label: devel-installation
+#| echo: true
+#| eval: false
+ 
 # install.packages("pak")
 pak::pak("tiwowi/wowi")
 ```

@@ -63,36 +63,6 @@ or you can install its development version from GitHub with:
 pak::pak("tiwowi/wowi")
 ```
 
-    ℹ Loading metadata database
-
-    ✔ Loading metadata database ... done
-
-     
-
-    → Package library at '/Library/Frameworks/R.framework/Versions/4.6/Resources/library'.
-
-    → Will update 1 package.
-
-    → Will download 1 package with unknown size.
-
-    + wowi 1.0.3 → 1.0.3 👷‍♂️🔧 ⬇ (GitHub: 238c4ee)
-
-    ℹ Getting 1 pkg with unknown size
-
-    ✔ Got wowi 1.0.3 (source) (4.88 MB)
-
-    ℹ Packaging wowi 1.0.3
-
-    ✔ Packaged wowi 1.0.3 (936ms)
-
-    ℹ Building wowi 1.0.3
-
-    ✔ Built wowi 1.0.3 (4.1s)
-
-    ✔ Installed wowi 1.0.3 (github::tiwowi/wowi@238c4ee) (42ms)
-
-    ✔ 1 pkg + 77 deps: kept 65, upd 1, dld 1 (NA B) [15s]
-
 ## What does `wowi` do?
 
 It takes a dataset with GPS coordinates (latitude and longitude), scans
