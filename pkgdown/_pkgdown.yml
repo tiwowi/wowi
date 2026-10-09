@@ -1,6 +1,25 @@
-title: wowi
+## ---- Package URL ------------------------------------------------------------
+
 
 url: https://tiwowi.github.io/wowi/
+
+
+## ---- Hyperlinks on the home page --------------------------------------------
+
+
+home:
+  title: Detect Spatial Clusters of High Rates of Acute Malnutrition 
+  links:
+    - text: Read more about rsatscan
+      href: https://CRAN.R-project.org/package=rsatscan
+    - text: Read more about SaTScan
+      href: https://www.satscan.org
+    - text: Read more about mwana
+      href: https://mphimo.github.io/mwana/ 
+
+
+## ---- Template ---------------------------------------------------------------
+
 
 template:
   bootstrap: 5
@@ -11,16 +30,37 @@ template:
     navbar-bg: "#9dac7c"
     bootswatch: pulse
     pkdown-nav-height: "100px"
+    base_font: {google: "Roboto"}
+    heading_font: {google: "Roboto"}
+    code_font: {google: "JetBrains Mono"}
+
+
+## ---- Customise the content of the navbar ------------------------------------
+
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, tutorials, news]
+    right: [search, github, lightswitch]
+
+
+## ---- Package development mode -----------------------------------------------
+
+
+development:
+  mode: auto
+  destination: docs/dev
+  version_label: info
+
+
+## ---- Destination of the content in the released site ------------------------
+
+
 destination: docs
 
-home:
-  links:
-  - text: Read more about rsatscan
-    href: https://CRAN.R-project.org/package=rsatscan
-  - text: Read more about SaTScan
-    href: https://www.satscan.org
-  - text: Read more about mwana
-    href: https://mphimo.github.io/mwana/ 
+
+## ---- References -------------------------------------------------------------
+
 
 reference: 
    - title: Description
