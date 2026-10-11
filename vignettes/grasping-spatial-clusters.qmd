@@ -1,7 +1,7 @@
 ---
 title: "Grasping Spatial Clusters"
 author: Tomás Zaba
-date-modified: today
+date: today
 date-format: DD MMMM YYYY
 format: html
 toc-depth: 4
@@ -103,7 +103,7 @@ See <span style="color:tomato">Figure xx</span>
 
 ![](image.png) 
 
-:::{.callout-important}
+:::{#imp-causes .callout-important}
 ## Spatial cluster analysis identify patterns, not causes
 
 It is noteworthy that cluster analyses help you unveil patterns hidden in your data; 
@@ -121,7 +121,7 @@ representativeness of the area of interest, and quality of data. The latter
 revolves around their interpretability. These are expanded below, and put into 
 perspective of acute malnutrition. 
 
-### Sound sampling design for the unit of analysis
+### Sound sampling design for the unit of analysis {#sec-methodology}
 
 According to @intepret-clusters, interpretation of a cluster findings should be 
 premissed on the underlying methodology leveraged to derive data. In other words,
@@ -164,7 +164,7 @@ mapping that is much more relevant for programming.
 Cluster analysis could also be leveraged in surveys derived from spatial sampling 
 methods.
 
-### Accurate case ascertainment 
+### Accurate case ascertainment {#sec-case_ascertainment}
 
 Accurate case ascertainement is a critical consideration to bear in mind as they 
 can impact the interpreation of cluster findings. It revolves around whether cases
@@ -191,7 +191,7 @@ In R, you can implement the SMART plausibility check test suite leveraging the
 [`mwana`](https://mphimo.github.io/mwana/) package [@mwana]
 :::
 
-### Incomplete reporting or missing values 
+### Incomplete reporting or missing values {#sec-missing_values}
 
 Incomplete reporting or the presence of missing values of both spatial and 
 non-spatial variables in your data can affect the cluster analysis by reducing the 
@@ -218,18 +218,18 @@ It is noteworthy that before `wowi` pipes the input data to the downstream
 spatial scan model, it first filters out all missing values in latitude and 
 longitude. 
 
-### Location uncertainty during the capture of geographical coordinates 
+### Location uncertainty during the capture of geographical coordinates {#sec-horizonal error}
 
-Besides the missing-value problem, location uncertainty of the GPS coordinates 
+Besides the missing-value problem, location uncertainty of GPS coordinates 
 is another problem to have under consideration. This is probably the most 
-underlooked problem during data collection. Survey teams may capture the GPS 
+underlooked problem during data collection. Survey teams may capture GPS 
 coordinates with a wide precision and accuracy, hence increasing the location 
 uncertainty. 
 
 Location uncertainty impacts disease cluster by introducing bias into the 
 spatial relationship between point features [@gis-epi] and by decreasing the 
-staistical power [ @intepret-clusters], result in flawed findings and poor 
-public health decision [@Jacquez2012]. In simple terms, it affects the 
+staistical power [ @intepret-clusters], thereby resulting in flawed findings and
+poor public health decision [@Jacquez2012]. In simple terms, it affects the 
 representation of the variable's observations to its actual geographical 
 reality. For instance, a child in the dataset may be assigned to a wrong 
 geographical location than where actually resides. 
@@ -237,30 +237,85 @@ geographical location than where actually resides.
 :::{.callout-note}
 If you call Uber or any other app-based transportation services and you do not 
 let your mobile device read your greographical location with good precision 
-before you confirm the request, that location may lead the driver to a different 
-location that where you are. That is because there was a great uncertainty 
-associated to your location. That is how the spatial relationships between gets 
+before you confirm the request, the distance between your device's calculated 
+map position and your actual physical position on the earth's surface - 
+_horizontal error_ may be large. That location may lead the driver to a different 
+location than where you are. <span style="color: tomato">That is how the spatial relationships between gets</span>
 affected.
 :::
 
 As known, all measurements contain error due to the innevitable imprecision 
 associated with the process of taking measurements. Nonetheless, they can be 
-minimised with adequate training and close supervision during data collection.  
+minimised with adequate training and close monitoring during data collection.  
 
   + __Training__: nowadays, almost all surveys leverage mobile devices for data 
   collection. In this sense, enumerators should be trained to ensure an optimal 
-  accuracy when capturing true GPS coordinates at the household level. Doing this 
-  would simultaneously address the missing-value problem discussed above. 
+  accuracy when capturing the GPS coordinates. Doing this would simultaneously 
+  address the missing-value problem discussed above. 
   + __Data quality checks__: in addition to training, the usual daily (or periodic) 
   data quality checks should also include checking the completness of GPS 
-  coordinates, checking the mean, minimum and maximum values of the accuracy 
+  coordinates, checking the mean, median, minimum, and maximum values of the accuracy 
   associated to a pair of latitude and longitude coordinates. Ideally, these 
-  checks should split by teams. 
+  checks should split by teams to better assess the quality. 
 
-### Are the detected clusters real?
+:::{.callout-important}
+While it is not clear what constitutes the optimal recommended GPS accuracy 
+(horisontal error), the rule of thumb is that it should be smallest possible, 
+ideally under 10 metres.
+:::
 
-### What do they mean?
+### Are the detected clusters real? 
 
-### Is there an excess? 
+It is worthy reflecting on the extent to which the detected clusters are trully
+real clusters. @intepret-clusters alerted that the identification of statistically 
+significant clusters may not necessarily mean that disease cluster is real in the 
+sense that it reflects a true underlying excess of risk. This premisse is grounded 
+problems that we have already discussed about in the previous sections, as well as 
+other issues discussed below. 
 
-😂
+According to @intepret-clusters, false clusters lack plausible biological 
+explation. True clusters are comprised of statistically significant excess as 
+well as common and plausible biological explanation to their occurance. Hence, 
+both statistical and biological plausibility must be taken into consideration 
+when ascertaining whether a cluster is real. 
+
+In acute malnutrition, as discussed in @sec-case_ascertainment, fortunately, this
+is comprehensively addressed in the SMART methodology through its rigorous 
+data collection methodology and data quality checks that provides an understanding 
+of the reliability of the data through the plausibility check test suite [@smart2017]. 
+Moreover, it also provides results on design effect (DEFF) and index of dispersion 
+(ID) [@smart2017]. These non-spatial statistics already give an indication as to 
+whether the data exhibits an heteregenous distribution of cases across the survey 
+area or not, or whether there statistically significant evidence that cases 
+are clumped into pockets of acute malnutrition. The former is addressed by the 
+DEFF statistics and the latter by the ID. 
+
+On the DEFF, the Integrated Food Security Phase Classification (IPC) established 
+that when a survey exhibits a DEFF >= 1.3, there is evidence that acute malnutrition 
+follows a heteregenous distribution across the area [@ipcmanual]. To the best of our knowledge, as of now, `wowi` has been leveraged only in surveys whose DEFF was at
+or above the IPC threshold. 
+
+:::{.callout-note}
+In R, you can calculate the ID or Green's Index statistics leveraging the 
+[`nipnTK`](https://nutriverse.io/nipnTK/reference/greensIndex.html?q=green#ref-usage) [@nipnTK]
+:::
+
+### What do they mean? 
+
+As discussed in @imp-causes, clusters analysis do not explain what drivers that 
+spatial structure in the data. This is a job reserved to you. Once the spatial 
+clusters have been detected, analysts should strive as much as possible to 
+understand the _why_ question. This could encompass undertaking: 
+
+  + __Further EDA__: this could include descriptive statistics of key indicators 
+  in the data that are known to drive acute malnutrition, such as: disease, 
+  food security, WASH. This process should leverage data from the same survey 
+  where applicable, and constrained to the survey PSUs that fall inside the 
+  spatial cluster under analysis. Furthermore, the could also be extended to 
+  assessing recent trend in admission of acute malnutrition derived from the 
+  catchment areas that serve the concerned PSUs.
+
+  + __Qualitative assessment__: In addition to the quantitative EDA, the qualitative
+  could provide additional insights as to why. Whilst the former approach can 
+  be undertaken right away, the qualitative assessment should ideally be pursued 
+  alongside a response. 
