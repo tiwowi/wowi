@@ -4,7 +4,7 @@ author: Tomás Zaba
 format: html
 toc-depth: 4
 bibliography: references.bib
-cls: harvard-cite-them-right-11th-edition.csl
+csl: harvard-cite-them-right-11th-edition.csl
 knitr:
   opts_chunk: 
     collapse: true
