@@ -127,7 +127,7 @@ You can run the analysis on either a single-area or a multiple-area dataset. We 
 ```{r} 
 #| label: single-area-set-up
 #| echo: false
-                                           
+
 ## Set up a temporary directory just for this demo ----
 directory <- file.path(withr::local_tempdir(), "input-files")
 ```
