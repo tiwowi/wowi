@@ -6,7 +6,7 @@ date-format: DD MMMM YYYY
 format: html
 toc-depth: 4
 bibliography: references.bib
-cls: harvard-cite-them-right-11th-edition.csl
+csl: harvard-cite-them-right-11th-edition.csl
 knitr:
   opts_chunk: 
     collapse: true
@@ -38,11 +38,11 @@ With the growing use of spatial cluster analysis, it is important to understand
 a few core concepts. Therefore, this article will walk you through the essence 
 of spatial cluster analysis in spatial epidemiology, with an emphasis on the 
 methods used in `wowi`. Moreover, you will also be guided through some key 
-considerations worth keeping under your belt when analyzing and interpreting 
+considerations worth keeping under your belt when analysing and interpreting 
 spatial clusters. Because the focus of `wowi` is currently limited to acute 
 malnutrition, these considerations are put into the perspective of acute malnutrition.
 
-## Key Concepts: Spatial Epiedemiology, Spatial Clusters, Spatial Structure, Spatial Autocorrelation 
+## Core Concepts: Spatial Epiedemiology, Spatial Clusters, Spatial Structure, Spatial Autocorrelation 
 
 __Spatial epidemiology__ - also referred to as _disease mapping_ - focuses on 
 studying the geographical or spatial distribution of health outcomes. Data that 
@@ -57,11 +57,11 @@ spatial randomness (CSR) [@David2023].
 __Spatial cluster__ or _clustering_ is defined as a concentration of cases in a
 specific geographic area that is statistically significant and differs from what 
 would be expected under an IRP or CSR <span style="color: salmon">[ADD A REFERENCE]</span>. 
-There are several that can be leveraged to glean the underlying spatial structure 
+There are several methods that can be leveraged to glean the underlying spatial structure 
 hidden in the data. These are grouped into two major buckets: (1) _global_ or 
 _general_ tests and (2) _local_ tests, all grounded on the spatial autocorrelation. 
 
-__Spatial autocorrelation__ is an spatial analysis method that is employed to 
+__Spatial autocorrelation__ is a method that is employed to 
 measure whether spatial patterns exist in a data [@statstest-clustering; @David2023].
 Essentially, it measures the variation of a variable - say malaria - by taking an 
 observation from the malaria variable and seeing how similar or different it is 
@@ -101,25 +101,30 @@ In order to elucidate you how this test works, I asked Microsoft Copilot's assis
 to visualise this. Hopefully this will give you a clue to grasp scan tests. 
 See <span style="color:tomato">Figure xx</span> 
 
+::: {#fig-scantests}
+
 ![](image.png) 
 
+An overview of how scan tests
+:::
+
 :::{#imp-causes .callout-important}
-## Spatial cluster analysis identify patterns, not causes
+## Spatial cluster analysis identify patterns, not causes or drivers
 
 It is noteworthy that cluster analyses help you unveil patterns hidden in your data; 
-They do not explain why they exist. That means that once unveilled, further 
+They do not explain why they exist or occur. That means that once unveilled, further 
 investigation is needed to understand the underlying reasons.
 
 :::
 
-## Key considerations worth keeping under your belt when interpreting local cluster analysis results 
+## Key considerations worth keeping under your belt when interpreting cluster analysis results 
 
 There are several key considerations to bear in mind before undertaking a cluster
 analysis as well as at the stage of interpreting results derived from it. The 
 former revolves around the process through which data was derived from - 
 representativeness of the area of interest, and quality of data. The latter 
 revolves around their interpretability. These are expanded below, and put into 
-perspective of acute malnutrition. 
+the perspective of acute malnutrition. 
 
 ### Sound sampling design for the unit of analysis {#sec-methodology}
 
@@ -134,7 +139,7 @@ As known, these methods ensure that the representativeness of the underlying
 study population is present. Otherwise, if the scope of the underlying assessment 
 is constrained to a subset of population, perhaps purposively selected, say
 one admin 3 rather than a sampling frame of all admin 3's, then the results 
-should also be only applied to that admin 3 only. 
+should be applied to that admin 3 only. 
 
 :::{.callout-note}
 As the objective of cluster analysis is to identify spatial patterns and inform 
@@ -148,7 +153,7 @@ For large-scale surveys - those conducted above the admin unit 3, aggregating
 several of them, such as livelihood-zone-based surveys, while they can also be 
 leveraged for cluster analysis and clusters be detected, it is noteworthy that 
 the detected clusters may not be as insightful for an effective programme 
-response or targetting as small-scale survey - say district-specific survey - 
+response or targetting as a small-scale survey - say district-specific survey - 
 would in unveiling within-district variation in an effective manner. 
 
 To put this into perspective, in surveys like SMART, primary sampling units (PSUs) 
@@ -218,7 +223,7 @@ It is noteworthy that before `wowi` pipes the input data to the downstream
 spatial scan model, it first filters out all missing values in latitude and 
 longitude. 
 
-### Location uncertainty during the capture of geographical coordinates {#sec-horizonal error}
+### Location uncertainty during the capture of geographical coordinates {#sec-horizonal_error}
 
 Besides the missing-value problem, location uncertainty of GPS coordinates 
 is another problem to have under consideration. This is probably the most 
@@ -228,7 +233,7 @@ uncertainty.
 
 Location uncertainty impacts disease cluster by introducing bias into the 
 spatial relationship between point features [@gis-epi] and by decreasing the 
-staistical power [ @intepret-clusters], thereby resulting in flawed findings and
+staistical power [@intepret-clusters], thereby resulting in flawed findings and
 poor public health decision [@Jacquez2012]. In simple terms, it affects the 
 representation of the variable's observations to its actual geographical 
 reality. For instance, a child in the dataset may be assigned to a wrong 
@@ -239,7 +244,7 @@ If you call Uber or any other app-based transportation services and you do not
 let your mobile device read your greographical location with good precision 
 before you confirm the request, the distance between your device's calculated 
 map position and your actual physical position on the earth's surface - 
-_horizontal error_ may be large. That location may lead the driver to a different 
+_horizontal error_ - may be large. That location may lead the driver to a different 
 location than where you are. <span style="color: tomato">That is how the spatial relationships between gets</span>
 affected.
 :::
@@ -319,3 +324,9 @@ understand the _why_ question. This could encompass undertaking:
   could provide additional insights as to why. Whilst the former approach can 
   be undertaken right away, the qualitative assessment should ideally be pursued 
   alongside a response. 
+
+<br>
+
+<hr>
+
+## References
