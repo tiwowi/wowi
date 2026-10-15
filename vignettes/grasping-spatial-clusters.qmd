@@ -288,6 +288,21 @@ While it is not clear what constitutes the optimal recommended GPS accuracy
 ideally under 10 metres.
 :::
 
+### Small numbers problem 
+
+Small-number problem refers to the intrinsic variance instability of rates 
+due to the population density variability across the study area, whereby the variance 
+increases as the denominator decreases. This problem can lead to the 
+identification of spurious results. In some spatial analysis methods, it is 
+recommended to correct for this problem by applying rate smoothing approaches that 
+improve the precision of crude rates or proportions by borrowing strength from 
+other observations [@intepret-clusters, @geoda].
+
+Some scan test models take input data in form of rates and others do not. The model 
+leveraged in `wowi` - Bernoulli model - does not. The model is free of the 
+small-number problem. It takes a binary variable for each latitude and longitude 
+coordinates, with cases represented as "1" and non-cases (controls) as "0" [@satscan]. 
+
 ### Are the detected clusters real? 
 
 It is worthy reflecting on the extent to which the detected clusters are trully
