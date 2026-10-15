@@ -327,4 +327,8 @@ We can also obtain the tidy table:
 #> #   area <chr>
 ```
 
+<br>
+
+<hr>
+
 ## References 
