@@ -21,13 +21,12 @@ vignette: >
 Leveraging spatial analytics in the field of public health nutrition — beyond the 
 plotting of basic choropleth maps — has historically been uncommon, despite the 
 well-established fact that acute malnutrition, like other diseases, exhibits 
-geographical variation. Spatial cluster analytics have been utilised to explore 
+geographical variation. Spatial cluster analytics have been utilised before to explore 
 the geographic variation of several public health issues [@Robin; @Eryando], 
 enabling decision makers to better understand community health needs and allocate 
 resources in a cost-effective manner [@gis-epi].
 
-Programme managers have constantly been — and continue to be — confronted with the 
-challenge of prioritising resources and responses to where needs are the most. 
+Nutrition programme managers have constantly been — and continue to be — confronted with the challenge of prioritising resources and responses to where needs are the most. 
 Currently, this challenge has further deepened with the shrinking of the funding 
 environment that humanitarian actors are experiencing since the beginning of 
 2025, leading to the need for a revamped prioritisation strategy for available 
@@ -40,9 +39,7 @@ communities to be served has been based on distance. Communities living
 in remote areas are prioritised for integrated health and nutrition outreach 
 activities over nearby communities, with the premise that remote communities are 
 the most vulnerable for being far away from basic services available at the central 
-district. 
-
-Whilst the underlying reasoning may be logical, it is not always true due to 
+district. Whilst the underlying reasoning may be logical, it is not always true due to 
 the wide-range and complex-interplay of the factors that lead to acute malnutrition. 
 
 Currently, leveraging spatial analytics to "pin-point" locations wherein there is 
@@ -55,7 +52,7 @@ Somalia, South Sudan, Sudan, and Mozambique.
 With the growing use of spatial cluster analysis, it is important to understand 
 a few core concepts. In this sense, this article will walk you through the essence 
 of spatial cluster analysis in spatial epidemiology, with an emphasis on the 
-method used in `wowi`. Moreover, you will also be guided through some key 
+method used in `wowi`. Moreover, you will also be guided through some core 
 considerations worth keeping under your belt when analysing and interpreting 
 spatial clusters. Because the focus of `wowi` is currently limited to acute 
 malnutrition, these considerations are put into the perspective of acute malnutrition.
@@ -79,8 +76,7 @@ There are several methods that can be leveraged to glean the underlying spatial 
 hidden in the data. These are grouped into two major buckets: (1) _global_ or 
 _general_ tests and (2) _local_ tests, all grounded on the spatial autocorrelation. 
 
-__Spatial autocorrelation__ is a method that is employed to 
-measure whether spatial patterns exist in data [@statstest-clustering; @David2023].
+__Spatial autocorrelation__ is a method that measures whether spatial structure is present in the data [@statstest-clustering; @David2023].
 Essentially, it measures the variation of a variable — say malaria — by taking an 
 observation from the malaria variable and seeing how similar or different it is 
 compared to other observations within a given neighbourhood, and quantifies the 
@@ -88,14 +84,14 @@ extent of it. Global tests only provide an overall assessment as to whether ther
 is a spatial structure in the data and the degree of it [@David2023]; global tests 
 do not address the _where_ question. This task is reserved for the local tests. 
 Local tests are designed to identify specific areas wherein spatial clustering occurs. 
-They provide insights into the spatial patterns and help pin-point areas of concern, 
+They provide insights into the spatial structure and help pin-point areas of concern, 
 by showing localised clusters with statistically significant high values — 
 __hot spots__ — and low values — __cold spots__ [@focused-clustering]. 
 
 :::{.callout-note title="Analysis workflow of global and local tests"}
 The workflow is that you first undertake a global test to ascertain whether your 
 data exhibits a discernible spatial structure. If true, then you proceed to 
-leverage local tests to glean the spatial structure therein. 
+leverage local tests to glean the spatial structure therein. However, some of the spatial clustering models go straight to local tests without passing through the global.
 :::
 
 There are several statistical methods to that. `wowi` leverages __scan tests__.
@@ -105,7 +101,7 @@ Scan tests are local tests.
 
 The workflow of scan tests involves identifying spatial clusters by scanning 
 through the data and evaluating the likelihood of observing the data under a null
-hypothesis of no spatial clustering. In other words, scan tests impose many 
+hypothesis of no spatial clustering or IRP/CSR. In other words, scan tests impose many 
 scanning windows of variable sizes over an area of interest, and calculates 
 the likelihood of the observed data within that window under the null hypothesis 
 of IRP or CSR. This process is repeated across the entire dataset to identify 
@@ -155,18 +151,18 @@ surveys or exhaustive surveys or even exhaustive screenings at the unit of analy
 As known, these methods ensure that the representativeness of the underlying 
 study population is present. Otherwise, if the scope of the underlying assessment 
 is constrained to a subset of the population, perhaps purposively selected, say
-one admin 3 rather than a sampling frame of all admin 3s, then the results 
-should be applied to that admin 3 only from where data was derived. 
+one admin level 3 rather than a sampling frame of all admin level 3s, then the results 
+should be applied to that admin level 3 only from where data was derived. 
 
 :::{.callout-note title="Definition of unit of analysis for the purpose of this article"}
-As the objective of cluster analysis is to identify spatial patterns and inform 
+As the objective of cluster analysis is to identify spatial structure and inform 
 targeted interventions, for the purpose of this article, a unit of analysis is the 
 administrative unit for which programme managers design interventions to address 
 malnutrition, typically admin level 3 (for example, districts in Somalia, 
 localities in Sudan, and counties in South Sudan).
 :::
 
-Large-scale surveys — those conducted above the admin unit 3, aggregating 
+Large-scale surveys — those conducted above the admin level 3, aggregating 
 several smaller units, such as livelihood-zone-based surveys — can also be 
 leveraged for cluster analysis, and clusters can be detected within them. It 
 is noteworthy, however, that the detected clusters may not be as insightful 
@@ -234,7 +230,7 @@ of latitude and longitude coordinates in the dataset. Results ranged between 3% 
 All rows with missing latitude and longitude coordinates were excluded from the 
 analysis. Along with it, 71 cases of acute malnutrition were consequently
 dropped. As evident, that affected the representation of the true geographical 
-reality.
+reality of acute malnutrition.
 
 :::
 
@@ -261,7 +257,7 @@ assigned to a wrong geographical location from where he/she actually resides.
 :::{.callout-note}
 ## A case in point on how location-uncertainty problem affects us
 If you call Uber or any other app-based transportation services and you do not 
-let your mobile device read your geographical location with good precision 
+let your mobile device read your geographical location with good accuracy 
 before you confirm the request, the distance between your device's calculated 
 map position and your actual physical position on the earth's surface — 
 _horizontal error_ — may be large. That location may lead the driver to a different 
@@ -296,7 +292,7 @@ due to the population density variability across the study area, whereby the var
 increases as the denominator decreases. This problem can lead to the 
 identification of spurious results. In some spatial analysis methods, it is 
 recommended to correct for this problem by applying rate smoothing approaches that 
-improve the precision of crude rates or proportions by borrowing strength from 
+improve the precision of crude rates by borrowing strength from 
 other observations [@intepret-clusters; @geoda].
 
 Some scan test models take input data in the form of rates and others do not. The model 
@@ -307,11 +303,7 @@ coordinates, with cases represented as "1" and non-cases (controls) as "0" [@sat
 ### Are the detected clusters real? 
 
 It is worth reflecting on the extent to which the detected clusters are truly
-real clusters. @intepret-clusters adverts to the fact that identification of statistically 
-significant clusters may not necessarily mean that a disease cluster is real in the 
-sense that it reflects a true underlying excess of risk. This premise is grounded 
-on the problems that we have already discussed above in the previous sections, 
-as well as other issues discussed below. 
+real clusters. @intepret-clusters adverts to the fact that identification of statistically significant clusters may not necessarily mean that a disease cluster is real in the sense that it reflects a true underlying excess of risk. This premise is grounded on the above-discussed problems as well as other discussed below. 
 
 According to @intepret-clusters, false clusters lack plausible biological 
 explanation. True clusters comprise statistically significant excess as 
@@ -333,8 +325,7 @@ DEFF statistics and the latter by the ID.
 On the DEFF, the Integrated Food Security Phase Classification (IPC) established 
 that when a survey exhibits a DEFF that is greater than or equal to 1.3, there 
 is evidence that acute malnutrition follows a heterogeneous distribution across 
-the survey area [@ipcmanual]. To the best of our knowledge, as of the writing, 
-`wowi` has been leveraged only in surveys whose DEFF was at or above the IPC threshold. 
+the survey area [@ipcmanual]. As of the writing, `wowi` has been leveraged only in surveys whose DEFF was at or above the IPC threshold. 
 
 :::{.callout-note title="Useful resource to estimate ID in R"}
 In R, you can calculate the ID or Green's Index statistic leveraging the 
