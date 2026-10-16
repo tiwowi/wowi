@@ -4,7 +4,7 @@ author: Tomás Zaba
 format: html
 toc-depth: 4
 bibliography: references.bib
-cls: harvard-cite-them-right-11th-edition.csl
+csl: harvard-cite-them-right-11th-edition.csl
 knitr:
   opts_chunk: 
     collapse: true
@@ -127,7 +127,7 @@ You can run the analysis on either a single-area or a multiple-area dataset. We 
 ```{r} 
 #| label: single-area-set-up
 #| echo: false
-                                           
+
 ## Set up a temporary directory just for this demo ----
 directory <- file.path(withr::local_tempdir(), "input-files")
 ```
@@ -326,5 +326,9 @@ We can also obtain the tidy table:
 #> #   `%_cases_in_area` <dbl>, log_lik_ratio <dbl>, pvalue <dbl>, ipc_amn <chr>,
 #> #   area <chr>
 ```
+
+<br>
+
+<hr>
 
 ## References 
