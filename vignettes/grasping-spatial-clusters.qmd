@@ -235,7 +235,6 @@ All rows with missing latitude and longitude coordinates were excluded from the
 analysis. Along with it, 71 cases of acute malnutrition were consequently
 dropped. As evident, that affected the representation of the true geographical 
 reality of acute malnutrition.
-
 :::
 
 It is noteworthy that before `wowi` pipes the input data to the downstream 
