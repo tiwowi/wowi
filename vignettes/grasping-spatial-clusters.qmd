@@ -26,11 +26,12 @@ the geographic variation of several public health issues [@Robin; @Eryando],
 enabling decision makers to better understand community health needs and allocate 
 resources in a cost-effective manner [@gis-epi].
 
-Nutrition programme managers have constantly been — and continue to be — confronted with the challenge of prioritising resources and responses to where needs are the most. 
-Currently, this challenge has further deepened with the shrinking of the funding 
-environment that humanitarian actors are experiencing since the beginning of 
-2025, leading to the need for a revamped prioritisation strategy for available 
-resources — "hyperprioritisation". 
+Nutrition programme managers have constantly been — and continue to be — 
+confronted with the challenge of prioritising resources and responses to where 
+needs are most pressing. Currently, this challenge has further deepened with the 
+shrinking of the funding environment that humanitarian actors are experiencing 
+since the beginning of 2025, leading to the need for a revamped prioritisation 
+strategy for available resources — "hyperprioritisation". 
 
 Even before these times of hyperprioritisation, setting prioritisation without 
 spatial analytics has been a challenge, with different approaches being employed 
@@ -40,7 +41,7 @@ in remote areas are prioritised for integrated health and nutrition outreach
 activities over nearby communities, with the premise that remote communities are 
 the most vulnerable for being far away from basic services available at the central 
 district. Whilst the underlying reasoning may be logical, it is not always true due to 
-the wide-range and complex-interplay of the factors that lead to acute malnutrition. 
+the wide ange and complex interplay of the factors that lead to acute malnutrition. 
 
 Currently, leveraging spatial analytics to "pin-point" locations wherein there is 
 an excess of acute malnutrition is becoming increasingly common, widely
@@ -76,7 +77,8 @@ There are several methods that can be leveraged to glean the underlying spatial 
 hidden in the data. These are grouped into two major buckets: (1) _global_ or 
 _general_ tests and (2) _local_ tests, all grounded on the spatial autocorrelation. 
 
-__Spatial autocorrelation__ is a method that measures whether spatial structure is present in the data [@statstest-clustering; @David2023].
+__Spatial autocorrelation__ is a method that measures whether spatial structure 
+is present in the data [@statstest-clustering; @David2023].
 Essentially, it measures the variation of a variable — say malaria — by taking an 
 observation from the malaria variable and seeing how similar or different it is 
 compared to other observations within a given neighbourhood, and quantifies the 
@@ -90,11 +92,13 @@ __hot spots__ — and low values — __cold spots__ [@focused-clustering].
 
 :::{.callout-note title="Analysis workflow of global and local tests"}
 The workflow is that you first undertake a global test to ascertain whether your 
-data exhibits a discernible spatial structure. If true, then you proceed to 
-leverage local tests to glean the spatial structure therein. However, some of the spatial clustering models go straight to local tests without passing through the global.
+data exhibit a discernible spatial structure. If true, then you proceed to 
+leverage local tests to glean the spatial structure therein. However, some of 
+the spatial clustering models go straight to local tests without passing through 
+the global tests.
 :::
 
-There are several statistical methods to that. `wowi` leverages __scan tests__.
+There are several statistical methods for that. `wowi` leverages __scan tests__.
 Scan tests are local tests.
 
 ## How do Scan Tests Work? 
@@ -102,7 +106,7 @@ Scan tests are local tests.
 The workflow of scan tests involves identifying spatial clusters by scanning 
 through the data and evaluating the likelihood of observing the data under a null
 hypothesis of no spatial clustering or IRP/CSR. In other words, scan tests impose many 
-scanning windows of variable sizes over an area of interest, and calculates 
+scanning windows of variable sizes over an area of interest, and calculate 
 the likelihood of the observed data within that window under the null hypothesis 
 of IRP or CSR. This process is repeated across the entire dataset to identify 
 locations where the observed data significantly deviates from the null hypothesis, 
@@ -196,7 +200,7 @@ misdiagnosis. One example of how the spatial structure in the data can be an art
 of misdiagnosis is when survey teams make measurement errors in a systematic 
 manner across the areas in which they are assigned to survey. As teams are 
 usually assigned survey clusters (PSUs) that are geographically close to each other
-— because it is practical and reduces operational costs than otherwise — systematic 
+— because it is practical and reduces operational costs more than otherwise — systematic 
 errors would hence be geographically bound, thereby creating a spatially structured
 bias. A case in point for this is when survey teams misdiagnose bilateral 
 pitting oedema. This would yield too many cases of acute malnutrition across the 
@@ -208,7 +212,7 @@ check test suite [@smart2017].
 
 :::{.callout-note title="Useful resource for plausibility checks in R"}
 In R, you can implement the SMART plausibility check test suite by leveraging the 
-[`mwana`](https://mphimo.github.io/mwana/) package [@mwana]
+[`mwana`](https://mphimo.github.io/mwana/) package [@mwana].
 :::
 
 ### Incomplete reporting or missing values {#sec-missing_values}
@@ -238,7 +242,7 @@ It is noteworthy that before `wowi` pipes the input data to the downstream
 spatial scan model, it first filters out all missing values in latitude and 
 longitude. 
 
-### Location uncertainty during the capture of geographical coordinates {#sec-horizonal_error}
+### Location uncertainty during the capture of geographical coordinates {#sec-horizontal_error}
 
 Besides the missing-value problem, location uncertainty of GPS coordinates 
 is another problem to have under consideration. This is probably the most 
@@ -256,12 +260,12 @@ assigned to a wrong geographical location from where he/she actually resides.
 
 :::{.callout-note}
 ## A case in point on how location-uncertainty problem affects us
-If you call Uber or any other app-based transportation services and you do not 
-let your mobile device read your geographical location with good accuracy 
-before you confirm the request, the distance between your device's calculated 
+If you send your location to someone via WhatsApp — through the location 
+feature — and you do not let your mobile device read your geographical location with 
+the smallest accuracy value possible, the distance between your device's calculated 
 map position and your actual physical position on the earth's surface — 
-_horizontal error_ — may be large. That location may lead the driver to a different 
-location from where you are.
+_horizontal error_ — may be large. That location may lead the other person to a 
+different location from where you are.
 :::
 
 As known, all measurements contain error due to the inevitable imprecision 
@@ -281,7 +285,7 @@ suggested below.
 
 :::{.callout-important title="What is the recommended width of GPS accuracy?"}
 While it is not clear what constitutes the optimal recommended GPS accuracy 
-(horizontal error), the rule of thumb is that it should be smallest possible, 
+(horizontal error), the rule of thumb is that it should be the smallest possible, 
 ideally under 10 metres.
 :::
 
@@ -303,7 +307,11 @@ coordinates, with cases represented as "1" and non-cases (controls) as "0" [@sat
 ### Are the detected clusters real? 
 
 It is worth reflecting on the extent to which the detected clusters are truly
-real clusters. @intepret-clusters adverts to the fact that identification of statistically significant clusters may not necessarily mean that a disease cluster is real in the sense that it reflects a true underlying excess of risk. This premise is grounded on the above-discussed problems as well as other discussed below. 
+real clusters. @intepret-clusters adverts to the fact that the identification of 
+statistically significant clusters may not necessarily mean that a disease cluster 
+is real in the sense that it reflects a true underlying excess of risk. This 
+premise is grounded on the above-discussed problems as well as other issues 
+discussed below. 
 
 According to @intepret-clusters, false clusters lack plausible biological 
 explanation. True clusters comprise statistically significant excess as 
@@ -317,7 +325,7 @@ data collection methodology and data quality test suite that provide an understa
 of the reliability of the data [@smart2017]. 
 Moreover, it also provides results on design effect (DEFF) and index of dispersion 
 (ID) [@smart2017]. These non-spatial statistics already give an indication as to 
-whether the data exhibits a heterogeneous distribution of cases across the survey 
+whether the data exhibit a heterogeneous distribution of cases across the survey 
 area or not, or whether there is statistically significant evidence that cases 
 are clumped into certain pockets of acute malnutrition. The former is addressed by the 
 DEFF statistics and the latter by the ID. 
@@ -325,7 +333,8 @@ DEFF statistics and the latter by the ID.
 On the DEFF, the Integrated Food Security Phase Classification (IPC) established 
 that when a survey exhibits a DEFF that is greater than or equal to 1.3, there 
 is evidence that acute malnutrition follows a heterogeneous distribution across 
-the survey area [@ipcmanual]. As of the writing, `wowi` has been leveraged only in surveys whose DEFF was at or above the IPC threshold. 
+the survey area [@ipcmanual]. As of this writing, `wowi` has been leveraged only 
+in surveys whose DEFF was at or above the IPC threshold. 
 
 :::{.callout-note title="Useful resource to estimate ID in R"}
 In R, you can calculate the ID or Green's Index statistic leveraging the 
@@ -335,7 +344,7 @@ In R, you can calculate the ID or Green's Index statistic leveraging the
 ### What do they mean? 
 
 As discussed in @imp-causes, cluster analyses do not explain what drives the 
-spatial structure in the data. This is a task reserved to you. Once the spatial 
+spatial structure in the data. This is a task reserved for you. Once the spatial 
 clusters have been detected, analysts should strive as much as possible to 
 understand the why. This could encompass undertaking: 
 
@@ -343,7 +352,7 @@ understand the why. This could encompass undertaking:
   in the data that are known to drive acute malnutrition, such as disease, 
   food security, WASH, etc. This process should leverage data from the same survey 
   where applicable, and constrained to the survey PSUs that fall inside the 
-  spatial cluster under analysis. Furthermore, This could also be extended to 
+  spatial cluster under analysis. Furthermore, this could also be extended to 
   assessing the recent trend in admission of acute malnutrition derived from the 
   catchment areas that serve the concerned PSUs.
 
