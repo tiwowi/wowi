@@ -49,7 +49,7 @@ navbar:
 
 development:
   mode: auto
-  destination: docs/dev
+  destination: dev
   version_label: info
 
 
