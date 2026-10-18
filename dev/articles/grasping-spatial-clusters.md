@@ -21,13 +21,13 @@ for a revamped prioritisation strategy for available resources —
 Even before these times of hyperprioritisation, setting prioritisation
 without spatial analytics has been a challenge, with different
 approaches being employed to identify communities in need. For instance,
-in Mozambique, prioritisation of communities to be served has been based
-on distance. Communities living in remote areas are prioritised for
-integrated health and nutrition outreach activities over nearby
+in some countries, prioritisation of communities to be served has been
+based on distance. Communities living in remote areas are prioritised
+for integrated health and nutrition outreach activities over nearby
 communities, with the premise that remote communities are the most
 vulnerable for being far away from basic services available at the
 central district. Whilst the underlying reasoning may be logical, it is
-not always true due to the wide ange and complex interplay of the
+not always true due to the wide range and complex interplay of the
 factors that lead to acute malnutrition.
 
 Currently, leveraging spatial analytics to “pin-point” locations wherein
@@ -39,15 +39,16 @@ and responses across four countries: Somalia, South Sudan, Sudan, and
 Mozambique.
 
 With the growing use of spatial cluster analysis, it is important to
-understand a few core concepts. In this sense, this article will walk
-you through the essence of spatial cluster analysis in spatial
-epidemiology, with an emphasis on the method used in `wowi`. Moreover,
-you will also be guided through some core considerations worth keeping
-under your belt when analysing and interpreting spatial clusters.
-Because the focus of `wowi` is currently limited to acute malnutrition,
-these considerations are put into the perspective of acute malnutrition.
+understand a few core concepts and considerations. In this sense, this
+article will walk you through the essence of spatial cluster analysis in
+spatial epidemiology, with an emphasis on the method used in `wowi`.
+Moreover, you will also be guided through some core considerations worth
+keeping under your belt when analysing and interpreting spatial
+clusters. Because the focus of `wowi` is currently limited to acute
+malnutrition, these considerations are put into the perspective of acute
+malnutrition.
 
-## Core Concepts: Spatial Epidemiology, Spatial Clusters, Spatial Structure, Spatial Autocorrelation
+## Core Concepts: Spatial Epidemiology, Spatial Clusters, Spatial Structure, and Spatial Autocorrelation
 
 **Spatial epidemiology** — also referred to as *disease mapping* —
 focuses on the study of the geographical or spatial distribution of
@@ -70,8 +71,8 @@ These are grouped into two major buckets: (1) *global* or *general*
 tests and (2) *local* tests, all grounded on the spatial
 autocorrelation.
 
-**Spatial autocorrelation** is a method that measures whether spatial
-structure is present in the data ([Rogerson and Jacquez,
+**Spatial autocorrelation** is a measure as to whether spatial structure
+is present in the data ([Rogerson and Jacquez,
 2016](#ref-statstest-clustering); [Jordan, 2023](#ref-David2023)).
 Essentially, it measures the variation of a variable — say malaria — by
 taking an observation from the malaria variable and seeing how similar
@@ -82,10 +83,10 @@ in the data and the degree of it ([Jordan, 2023](#ref-David2023));
 global tests do not address the *where* question. This task is reserved
 for the local tests. Local tests are designed to identify specific areas
 wherein spatial clustering occurs. They provide insights into the
-spatial structure and help pin-point areas of concern, by showing
-localised clusters with statistically significant high values — **hot
-spots** — and low values — **cold spots** ([Waller, Wheeler and
-Switchenko, 2016](#ref-focused-clustering)).
+spatial structure by pin-pointing localised clusters with statistically
+significant high values — **hot spots** — and low values — **cold
+spots** ([Waller, Wheeler and Switchenko,
+2016](#ref-focused-clustering)).
 
 > **Analysis workflow of global and local tests**
 >
@@ -169,8 +170,8 @@ where data was derived.
 
 Large-scale surveys — those conducted above the admin level 3,
 aggregating several smaller units, such as livelihood-zone-based surveys
-— can also be leveraged for cluster analysis, and clusters can be
-detected within them. It is noteworthy, however, that the detected
+— can also be leveraged for cluster analysis, and spatial clusters can
+be detected within them. It is noteworthy, however, that the detected
 clusters may not be as insightful for an effective programme response or
 targeting as a small-scale survey — say, a district-specific survey —
 would be in unveiling within-district variation in an effective manner.
@@ -206,10 +207,10 @@ teams make measurement errors in a systematic manner across the areas in
 which they are assigned to survey. As teams are usually assigned survey
 clusters (PSUs) that are geographically close to each other — because it
 is practical and reduces operational costs more than otherwise —
-systematic errors would hence be geographically bound, thereby creating
-a spatially structured bias. A case in point for this is when survey
-teams misdiagnose bilateral pitting oedema. This would yield too many
-cases of acute malnutrition across the PSUs they surveyed.
+systematic errors would hence be geographically bounded, thereby
+creating a spatially structured bias. A case in point for this is when
+survey teams misdiagnose bilateral pitting oedema. This would yield too
+many cases of acute malnutrition across the PSUs they surveyed.
 
 Fortunately for acute malnutrition, thanks to the SMART Initiative, this
 and many other data-quality-related issues can be checked by leveraging
@@ -236,7 +237,7 @@ coordinates is extremely common in surveys. Thus, it is a good practice
 to undertake an exploratory data analysis (EDA) of your data to inspect
 for such problems.
 
-> **A case in point on how missing-value problem can affect the
+> **A case in point on how the missing-value problem can affect the
 > analysis**
 >
 > Results from an EDA undertaken as part of a spatial data analysis of
@@ -250,9 +251,10 @@ for such problems.
 
 It is noteworthy that before `wowi` pipes the input data to the
 downstream spatial scan model, it first filters out all missing values
-in latitude and longitude.
+in latitude and longitude corodinates, as well as other non-spatial
+variables used in the analysis.
 
-### Location uncertainty during the capture of geographical coordinates
+### Location uncertainty
 
 Besides the missing-value problem, location uncertainty of GPS
 coordinates is another problem to have under consideration. This is
@@ -271,7 +273,7 @@ where they actually occur. For instance, a child in the dataset may be
 assigned to a wrong geographical location from where he/she actually
 resides.
 
-> **A case in point on how location-uncertainty problem affects us**
+> **A case in point on how the location-uncertainty problem affects us**
 >
 > If you send your location to someone via WhatsApp — through the
 > location feature — and you do not let your mobile device read your
@@ -288,9 +290,8 @@ monitoring during data collection as suggested below.
 
 - **Training**: nowadays, almost all surveys leverage mobile devices for
   data collection. In this sense, enumerators should be trained to
-  ensure an optimal accuracy when capturing the GPS coordinates. Doing
-  this would simultaneously address the missing-value problem discussed
-  above.
+  ensure optimal accuracy when capturing GPS coordinates. Doing so would
+  simultaneously address the missing-value problem discussed above.
 - **Data quality checks**: in addition to training, the usual daily (or
   periodic) data quality checks should also include checking the
   completeness of GPS coordinates, as well as checking the mean, median,
@@ -298,11 +299,11 @@ monitoring during data collection as suggested below.
   latitude and longitude coordinates. Ideally, these checks should be
   split by teams to better assess the quality.
 
-> **What is the recommended width of GPS accuracy?**
+> **What is the recommended positional accuracy of GPS coordinates?**
 >
 > While it is not clear what constitutes the optimal recommended GPS
-> accuracy (horizontal error), the rule of thumb is that it should be
-> the smallest possible, ideally under 10 metres.
+> positional accuracy (horizontal error), the rule of thumb is that it
+> should be the smallest possible, ideally under 10 metres.
 
 ### Small numbers problem
 
@@ -353,27 +354,28 @@ statistically significant evidence that cases are clumped into certain
 pockets of acute malnutrition. The former is addressed by the DEFF
 statistics and the latter by the ID.
 
-On the DEFF, the Integrated Food Security Phase Classification (IPC)
-established that when a survey exhibits a DEFF that is greater than or
-equal to 1.3, there is evidence that acute malnutrition follows a
-heterogeneous distribution across the survey area ([IPC Global Partners,
-2021](#ref-ipcmanual)). As of this writing, `wowi` has been leveraged
-only in surveys whose DEFF was at or above the IPC threshold.
+On the matter of DEFF, the Integrated Food Security Phase Classification
+(IPC) established that when a survey exhibits a DEFF that is greater
+than or equal to 1.3, there is evidence that acute malnutrition follows
+a heterogeneous distribution across the survey area, therefore be
+disaggregated to reveal the underlying spatial structure ([IPC Global
+Partners, 2021](#ref-ipcmanual)). As of this writing, `wowi` has been
+leveraged only in surveys whose DEFF was at or above the IPC threshold.
 
 > **Useful resource to estimate ID in R**
 >
 > In R, you can calculate the ID or Green’s Index statistic leveraging
 > the
 > [`nipnTK`](https://nutriverse.io/nipnTK/reference/greensIndex.html)
-> ([Myatt and Guevarra, 2026](#ref-nipnTK)).
+> package ([Myatt and Guevarra, 2026](#ref-nipnTK)).
 
 ### What do they mean?
 
 As discussed in [Important 1](#imp-causes), cluster analyses do not
 explain what drives the spatial structure in the data. This is a task
 reserved for you. Once the spatial clusters have been detected, analysts
-should strive as much as possible to understand the why. This could
-encompass undertaking:
+should strive, as much as possible, to understand the underlying driving
+factors of their emergence. This could encompass undertaking:
 
 - **Further EDA**: this could include descriptive statistics of key
   indicators in the data that are known to drive acute malnutrition,

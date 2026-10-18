@@ -94,7 +94,7 @@ ww_wrangle_data(
   latitude = latitude,
   longitude = longitude
 )
-#> [1] "/tmp/RtmpSLknjC/file1f5a1ae95f7a/input-files/Locality"
+#> [1] "/tmp/RtmpF30uMn/file20302315ee8a/input-files/Locality"
 
 library(rsatscan) # important to make `{wowi}` access `{rsatscan}`-specific eviroment
 #> rsatscan only does anything useful if you have SaTScan
